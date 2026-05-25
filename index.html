@@ -6,13 +6,13 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--red:#e50914;--red-dark:#b20710;--bg:#141414;--surface:#181818;--surface2:#232323;--text:#e5e5e5;--muted:#a3a3a3;--faint:#303030;--sans:'DM Sans',Helvetica,Arial,sans-serif}
-body{font-family:var(--sans);background:var(--bg);color:var(--text);font-size:15px;min-height:100vh;overflow-x:hidden}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);font-size:17px;min-height:100vh;overflow-x:hidden}
 nav{background:rgba(0,0,0,0.92);padding:0 4%;height:68px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;border-bottom:0.5px solid var(--faint)}
 .nav-logo{font-size:1.4rem;font-weight:700;color:var(--red);cursor:pointer}
 .nav-links{display:flex;gap:1.2rem;list-style:none;align-items:center}
-.nav-links a{font-size:13px;color:var(--muted);text-decoration:none;cursor:pointer;transition:color 0.15s}
+.nav-links a{font-size:15px;color:var(--muted);text-decoration:none;cursor:pointer;transition:color 0.15s}
 .nav-links a:hover,.nav-links a.active{color:var(--text)}
-.nav-contact{font-size:13px;font-weight:500;padding:6px 16px;background:var(--red);color:#fff;text-decoration:none;cursor:pointer;transition:background 0.15s;border:none}
+.nav-contact{font-size:15px;font-weight:500;padding:6px 16px;background:var(--red);color:#fff;text-decoration:none;cursor:pointer;transition:background 0.15s;border:none}
 .nav-contact:hover{background:var(--red-dark)}
 .page{display:none}.page.active{display:block}
 
@@ -22,45 +22,45 @@ nav{background:rgba(0,0,0,0.92);padding:0 4%;height:68px;display:flex;align-item
 .hero-title{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:700;line-height:1.05;margin-bottom:1rem;color:#fff}
 .hero-title em{font-style:italic;color:var(--red)}
 .hero-badge{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-bottom:1.5rem;line-height:1.8}
-.hero-desc{font-size:15px;color:#ccc;line-height:1.65;margin-bottom:1.75rem;max-width:480px}
+.hero-desc{font-size:17px;color:#ccc;line-height:1.65;margin-bottom:1.75rem;max-width:480px}
 .hero-btns{display:flex;gap:10px}
 .btn-red{font-family:var(--sans);font-size:14px;font-weight:700;padding:10px 28px;background:var(--red);color:#fff;border:none;cursor:pointer;transition:background 0.15s}
 .btn-red:hover{background:var(--red-dark)}
 
 .row{padding:0 4% 2.5rem}
 .row-label{font-size:16px;font-weight:500;color:var(--text);margin-bottom:1rem;padding-top:1.5rem}
-.scroll-row{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px}
+.scroll-row{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px}
 .scroll-row::-webkit-scrollbar{height:0}
-.nf-card{flex:0 0 200px;cursor:pointer;position:relative;transition:transform 0.25s}
-.nf-card:hover{transform:scale(1.08);z-index:10}
-.nf-thumb{width:100%;height:112px;position:relative;overflow:hidden;background:#000}
+.nf-card{flex:0 0 280px;cursor:pointer;position:relative;transition:transform 0.25s}
+.nf-card:hover{transform:scale(1.04);z-index:10}
+.nf-thumb{width:100%;height:160px;position:relative;overflow:hidden;background:#000}
 .nf-thumb-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.7) 0%,transparent 60%)}
 .nf-thumb-label{position:absolute;bottom:8px;left:8px;right:8px}
 .nf-company{font-size:15px;font-weight:700;color:#fff;line-height:1.1}
 .nf-role{font-size:9px;letter-spacing:0.07em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-top:2px}
 .nf-info{padding:6px 0 0}
-.nf-desc{font-size:11px;color:var(--muted);line-height:1.5}
-.testi-card{flex:0 0 300px;background:var(--surface);border:1px solid var(--faint);padding:1.25rem}
-.testi-card blockquote{font-size:13px;font-style:italic;color:var(--text);line-height:1.7;margin-bottom:0.75rem;border-left:3px solid var(--red);padding-left:0.9rem}
-.testi-attr{font-size:11px;color:var(--muted)}
+.nf-desc{font-size:13px;color:var(--muted);line-height:1.5}
+.testi-card{flex:0 0 320px;background:var(--surface);border:1px solid var(--faint);padding:1.25rem}
+.testi-card blockquote{font-size:15px;font-style:italic;color:var(--text);line-height:1.7;margin-bottom:0.75rem;border-left:3px solid var(--red);padding-left:0.9rem}
+.testi-attr{font-size:13px;color:var(--muted)}
 
 .skills-section{padding:0 4% 2.5rem}
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:8px;margin-bottom:1.5rem}
 .skill-box{background:var(--surface);padding:0.9rem 1rem;border-left:3px solid var(--red)}
-.skill-name{font-size:13px;font-weight:500;color:var(--text);margin-bottom:3px}
-.skill-desc{font-size:11px;color:var(--muted);line-height:1.5}
+.skill-name{font-size:15px;font-weight:500;color:var(--text);margin-bottom:3px}
+.skill-desc{font-size:13px;color:var(--muted);line-height:1.5}
 .tools-grid{display:flex;flex-wrap:wrap;gap:8px}
 .tool-chip{font-size:12px;font-weight:500;padding:6px 14px;border:1px solid var(--faint);color:var(--muted);background:var(--surface)}
 
 .faq-section{padding:0 4% 3rem}
 .faq-item{border-bottom:1px solid var(--faint)}
-.faq-q{width:100%;background:none;border:none;color:var(--text);font-size:15px;font-weight:500;text-align:left;padding:1.2rem 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:var(--sans)}
+.faq-q{width:100%;background:none;border:none;color:var(--text);font-size:17px;font-weight:500;text-align:left;padding:1.2rem 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:var(--sans)}
 .faq-q:hover{color:#fff}
 .faq-icon{font-size:20px;color:var(--muted);transition:transform 0.2s;flex-shrink:0;margin-left:1rem}
 .faq-icon.open{transform:rotate(45deg)}
 .faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s ease}
 .faq-a.open{max-height:500px}
-.faq-a p{font-size:14px;color:var(--muted);line-height:1.8;padding-bottom:1.2rem}
+.faq-a p{font-size:16px;color:var(--muted);line-height:1.8;padding-bottom:1.2rem}
 
 .contact-section{padding:2.5rem 4% 4rem;border-top:1px solid var(--faint)}
 .contact-inner{max-width:560px}
@@ -131,9 +131,9 @@ nav{background:rgba(0,0,0,0.92);padding:0 4%;height:68px;display:flex;align-item
   <div class="hero">
     <div class="hero-fade"></div>
     <div class="hero-content">
-      <h1 class="hero-title">Content Sorceress who<br>sprinkles <em>magic dust.</em></h1>
+      <h1 class="hero-title">Content sorceress who<br>sprinkles <em>magic dust.</em></h1>
       <p class="hero-badge">AI content editor &nbsp;·&nbsp; Writer &amp; Thinker &nbsp;·&nbsp; Ex-product manager &nbsp;·&nbsp; Ex-journalist</p>
-      <p class="hero-desc">Fintech and SaaS content built on a decade of journalism, product management, and an unhealthy curiosity about how things work.</p>
+      <p class="hero-desc">Tech content for startups built on a decade of journalism, product management, and content writing and editing.</p>
       <div class="hero-btns">
         <button class="btn-red" onclick="scrollToClients()">See My Work</button>
       </div>
@@ -144,23 +144,23 @@ nav{background:rgba(0,0,0,0.92);padding:0 4%;height:68px;display:flex;align-item
     <p class="row-label">Selected Clients</p>
     <div class="scroll-row">
       <div class="nf-card" onclick="showClient('exponent')">
-        <div class="nf-thumb" style="background:linear-gradient(135deg,#1a0505,#2a0a0a)"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:2.2rem;font-weight:900;color:rgba(229,9,20,0.25)">EXP</span></div><div class="nf-thumb-overlay"></div><div class="nf-thumb-label"><div class="nf-company">Exponent</div><div class="nf-role">Interview Guides · 2024–Present</div></div></div>
+        <div class="nf-thumb" style="background:linear-gradient(135deg,#1a0505,#2a0a0a)"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:2.2rem;font-weight:900;color:rgba(229,9,20,0.25)">EXP</span></div><div class="nf-thumb-overlay"></div><div class="nf-thumb-label"><div class="nf-company">Exponent</div></div></div>
         <div class="nf-info"><p class="nf-desc">35 guides driving PM, EM, TPM conversion.</p></div>
       </div>
       <div class="nf-card" onclick="showClient('clickup')">
-        <div class="nf-thumb" style="background:linear-gradient(135deg,#0d0a20,#1a1440)"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:2.2rem;font-weight:900;color:rgba(123,104,238,0.25)">CU</span></div><div class="nf-thumb-overlay"></div><div class="nf-thumb-label"><div class="nf-company">ClickUp</div><div class="nf-role">Senior Editor · 2024–2025</div></div></div>
+        <div class="nf-thumb" style="background:linear-gradient(135deg,#0d0a20,#1a1440)"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:2.2rem;font-weight:900;color:rgba(123,104,238,0.25)">CU</span></div><div class="nf-thumb-overlay"></div><div class="nf-thumb-label"><div class="nf-company">ClickUp</div></div></div>
         <div class="nf-info"><p class="nf-desc">250+ blogs/month. 2% avg, 10–11% top conversion.</p></div>
       </div>
       <div class="nf-card" onclick="showClient('capitalwe')">
-        <div class="nf-thumb" style="background:linear-gradient(135deg,#0a1a10,#102015)"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:2.2rem;font-weight:900;color:rgba(76,175,80,0.25)">CW</span></div><div class="nf-thumb-overlay"></div><div class="nf-thumb-label"><div class="nf-company">CapitalWe</div><div class="nf-role">Newsletter · 2024–2025</div></div></div>
+        <div class="nf-thumb" style="background:linear-gradient(135deg,#0a1a10,#102015)"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:2.2rem;font-weight:900;color:rgba(76,175,80,0.25)">CW</span></div><div class="nf-thumb-overlay"></div><div class="nf-thumb-label"><div class="nf-company">CapitalWe</div></div></div>
         <div class="nf-info"><p class="nf-desc">88% readership growth. 80% open rate.</p></div>
       </div>
       <div class="nf-card" onclick="showClient('thriving')">
-        <div class="nf-thumb" style="background:linear-gradient(135deg,#0f0a18,#180f25)"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:2.2rem;font-weight:900;color:rgba(156,39,176,0.25)">TS</span></div><div class="nf-thumb-overlay"></div><div class="nf-thumb-label"><div class="nf-company">Thriving Springs</div><div class="nf-role">Content Lead · Nov–Dec 2024</div></div></div>
+        <div class="nf-thumb" style="background:linear-gradient(135deg,#0f0a18,#180f25)"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:2.2rem;font-weight:900;color:rgba(156,39,176,0.25)">TS</span></div><div class="nf-thumb-overlay"></div><div class="nf-thumb-label"><div class="nf-company">Thriving Springs</div></div></div>
         <div class="nf-info"><p class="nf-desc">Blog engine from zero in 2 months.</p></div>
       </div>
       <div class="nf-card" onclick="showClient('ima')">
-        <div class="nf-thumb" style="background:linear-gradient(135deg,#181200,#221a00)"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:2.2rem;font-weight:900;color:rgba(255,193,7,0.25)">IMA</span></div><div class="nf-thumb-overlay"></div><div class="nf-thumb-label"><div class="nf-company">IMA India</div><div class="nf-role">Research Papers</div></div></div>
+        <div class="nf-thumb" style="background:linear-gradient(135deg,#181200,#221a00)"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:2.2rem;font-weight:900;color:rgba(255,193,7,0.25)">IMA</span></div><div class="nf-thumb-overlay"></div><div class="nf-thumb-label"><div class="nf-company">IMA India</div></div></div>
         <div class="nf-info"><p class="nf-desc">20 papers, 1,000+ CXO subscribers.</p></div>
       </div>
     </div>
@@ -183,19 +183,13 @@ nav{background:rgba(0,0,0,0.92);padding:0 4%;height:68px;display:flex;align-item
   <div class="skills-section">
     <p class="row-label">Skills</p>
     <div class="skills-grid">
-      <div class="skill-box"><div class="skill-name">AI content editing</div><div class="skill-desc">Humanising AI drafts, prompt workflows, AI-assisted research pipelines</div></div>
+      <div class="skill-box"><div class="skill-name">AI content editing &amp; production</div><div class="skill-desc">Humanising AI drafts, prompt workflows, AI-assisted research pipelines, end-to-end AI content production</div></div>
       <div class="skill-box"><div class="skill-name">Content strategy</div><div class="skill-desc">0-1 organic playbooks, editorial calendars, SEO mapping, brief writing</div></div>
-      <div class="skill-box"><div class="skill-name">Long-form writing</div><div class="skill-desc">Interview guides, research papers, SaaS blogs, fintech newsletters</div></div>
       <div class="skill-box"><div class="skill-name">Ghostwriting</div><div class="skill-desc">Voice matching, executive newsletters, founder thought leadership</div></div>
       <div class="skill-box"><div class="skill-name">Technical content</div><div class="skill-desc">PM, TPM, engineering, SaaS product docs simplified for any audience</div></div>
-      <div class="skill-box"><div class="skill-name">Editing at scale</div><div class="skill-desc">Structure, narrative, tone, accuracy across high-volume pipelines</div></div>
-      <div class="skill-box"><div class="skill-name">Primary research</div><div class="skill-desc">SME interviews, verified candidate accounts, expert synthesis</div></div>
-      <div class="skill-box"><div class="skill-name">Team leadership</div><div class="skill-desc">Sourcing, onboarding, briefing, and managing freelance writer teams</div></div>
+      <div class="skill-box"><div class="skill-name">AEO &amp; GEO</div><div class="skill-desc">Answer Engine Optimisation and Generative Engine Optimisation — content built to surface in AI-powered search</div></div>
     </div>
-    <p class="row-label" style="margin-top:1rem">Tools</p>
-    <div class="tools-grid">
-      <span class="tool-chip">Contentful</span><span class="tool-chip">WordPress</span><span class="tool-chip">Notion</span><span class="tool-chip">Amplitude</span><span class="tool-chip">Kit (ConvertKit)</span><span class="tool-chip">Loom</span><span class="tool-chip">ClickUp</span><span class="tool-chip">ChatGPT</span><span class="tool-chip">Claude</span><span class="tool-chip">Grammarly</span><span class="tool-chip">Ahrefs</span><span class="tool-chip">Google Analytics</span><span class="tool-chip">Glassdoor / Blind / Reddit</span>
-    </div>
+  
   </div>
 
   <hr class="divider">
@@ -312,10 +306,9 @@ nav{background:rgba(0,0,0,0.92);padding:0 4%;height:68px;display:flex;align-item
 <!-- ABOUT -->
 <div id="page-about" class="page">
   <div class="about-wrap">
-    <div class="about-hero">
-      <div><div style="width:180px;height:220px;background:var(--surface2);display:flex;align-items:center;justify-content:center"><span style="font-size:3rem;font-weight:700;color:var(--red)">AA</span></div></div>
+    <div class="about-hero" style="grid-template-columns:1fr;gap:1rem">
       <div>
-        <h1 class="about-name">Aakanksha Ahuja</h1>
+        <h1 class="about-name">Aakanksha A.</h1>
         <p class="about-roles">AI content editor · Writer and thinker · Ex-PM · Ex-founder's office · Ex-journalist</p>
         <p class="about-tagline">I follow my curiosity for a living. It's worked out so far.</p>
       </div>
@@ -326,7 +319,6 @@ nav{background:rgba(0,0,0,0.92);padding:0 4%;height:68px;display:flex;align-item
       <p>I started out as a journalist at <strong>Mint</strong>, then moved into a <strong>founder's office role</strong> at a pre-Series A startup, followed by <strong>product manager stints at two fintechs</strong>. Now I operate as a tech marketer and content strategist. Non-linear careers come with risk and a lot of uncertainty, but every time I have taken the leap, I have hoped it all makes sense in the end.</p>
       <p>It has, in a lot of ways.</p>
       <p>I have applied what I learned as a journalist to working with 0-1 founders. I have built content playbooks for technical audiences and interview guides with the knowledge I picked up as a PM. My sweet spot is working on a bunch of different problems and finding interesting, creative ways to solve them.</p>
-      <p>When I say interesting, I mean it. <em>My portfolio looks like a Netflix screen.</em></p>
       <p>I am also a poet, a badminton player, and currently learning how to improve my swimming strokes. I am based in <strong>Goa, India</strong>, where I live with my future dog, Poeee.</p>
     </div>
   </div>
