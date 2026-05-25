@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#e50914;--red-dark:#b20710;--bg:#141414;--surface:#181818;--surface2:#232323;--text:#e5e5e5;--muted:#a3a3a3;--faint:#303030;--sans:'DM Sans',Helvetica,Arial,sans-serif}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);font-size:17px;min-height:100vh;overflow-x:hidden}
+nav{background:rgba(0,0,0,0.92);padding:0 4%;height:68px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;border-bottom:0.5px solid var(--faint)}
+.nav-logo{font-size:1.4rem;font-weight:700;color:var(--red);cursor:pointer}
+.nav-links{display:flex;gap:1.2rem;list-style:none;align-items:center}
+.nav-links a{font-size:15px;color:var(--muted);text-decoration:none;cursor:pointer;transition:color 0.15s}
+.nav-links a:hover,.nav-links a.active{color:var(--text)}
+.nav-contact{font-size:15px;font-weight:500;padding:6px 16px;background:var(--red);color:#fff;text-decoration:none;cursor:pointer;transition:background 0.15s;border:none}
+.nav-contact:hover{background:var(--red-dark)}
+.page{display:none}.page.active{display:block}
+
+.hero{position:relative;height:540px;display:flex;align-items:center;overflow:hidden;background:#000}
+.hero-fade{position:absolute;inset:0;background:linear-gradient(to right,#000 40%,transparent 80%),linear-gradient(to top,#141414 0%,transparent 40%)}
+.hero-content{position:relative;z-index:2;padding:0 4%;max-width:620px}
+.hero-title{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:700;line-height:1.05;margin-bottom:1rem;color:#fff}
+.hero-title em{font-style:italic;color:var(--red)}
+.hero-badge{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-bottom:1.5rem;line-height:1.8}
+.hero-desc{font-size:17px;color:#ccc;line-height:1.65;margin-bottom:1.75rem;max-width:480px}
+.hero-btns{display:flex;gap:10px}
+.btn-red{font-family:var(--sans);font-size:14px;font-weight:700;padding:10px 28px;background:var(--red);color:#fff;border:none;cursor:pointer;transition:background 0.15s}
+.btn-red:hover{background:var(--red-dark)}
+
+.row{padding:0 4% 2.5rem}
+.row-label{font-size:16px;font-weight:500;color:var(--text);margin-bottom:1rem;padding-top:1.5rem}
+.scroll-row{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px}
+.scroll-row::-webkit-scrollbar{height:0}
+.nf-card{flex:0 0 280px;cursor:pointer;position:relative;transition:transform 0.25s}
+.nf-card:hover{transform:scale(1.04);z-index:10}
+.nf-thumb{width:100%;height:160px;position:relative;overflow:hidden;background:#000}
+.nf-thumb-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.7) 0%,transparent 60%)}
+.nf-thumb-label{position:absolute;bottom:8px;left:8px;right:8px}
+.nf-company{font-size:15px;font-weight:700;color:#fff;line-height:1.1}
+.nf-role{font-size:9px;letter-spacing:0.07em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-top:2px}
+.nf-info{padding:6px 0 0}
+.nf-desc{font-size:13px;color:var(--muted);line-height:1.5}
+.testi-card{flex:0 0 320px;background:var(--surface);border:1px solid var(--faint);padding:1.25rem}
+.testi-card blockquote{font-size:15px;font-style:italic;color:var(--text);line-height:1.7;margin-bottom:0.75rem;border-left:3px solid var(--red);padding-left:0.9rem}
+.testi-attr{font-size:13px;color:var(--muted)}
+
+.skills-section{padding:0 4% 2.5rem}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:8px;margin-bottom:1.5rem}
+.skill-box{background:var(--surface);padding:0.9rem 1rem;border-left:3px solid var(--red)}
+.skill-name{font-size:15px;font-weight:500;color:var(--text);margin-bottom:3px}
+.skill-desc{font-size:13px;color:var(--muted);line-height:1.5}
+.tools-grid{display:flex;flex-wrap:wrap;gap:8px}
+.tool-chip{font-size:12px;font-weight:500;padding:6px 14px;border:1px solid var(--faint);color:var(--muted);background:var(--surface)}
+
+.faq-section{padding:0 4% 3rem}
+.faq-item{border-bottom:1px solid var(--faint)}
+.faq-q{width:100%;background:none;border:none;color:var(--text);font-size:17px;font-weight:500;text-align:left;padding:1.2rem 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:var(--sans)}
+.faq-q:hover{color:#fff}
+.faq-icon{font-size:20px;color:var(--muted);transition:transform 0.2s;flex-shrink:0;margin-left:1rem}
+.faq-icon.open{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s ease}
+.faq-a.open{max-height:500px}
+.faq-a p{font-size:16px;color:var(--muted);line-height:1.8;padding-bottom:1.2rem}
+
+.contact-section{padding:2.5rem 4% 4rem;border-top:1px solid var(--faint)}
+.contact-inner{max-width:560px}
+.contact-inner h2{font-size:1.6rem;font-weight:700;color:#fff;margin-bottom:0.75rem}
+.contact-inner p{font-size:15px;color:var(--muted);line-height:1.75;margin-bottom:1.5rem}
+.contact-email{display:inline-block;font-size:16px;font-weight:500;color:var(--red);text-decoration:none;border-bottom:1px solid var(--red);padding-bottom:2px;transition:color 0.15s}
+.contact-email:hover{color:#fff;border-color:#fff}
+
+.client-wrap{max-width:850px;margin:0 auto;padding:2rem 4% 5rem}
+.back-btn{font-size:13px;color:var(--muted);background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:6px;margin-bottom:1.5rem;transition:color 0.15s;font-family:var(--sans)}
+.back-btn:hover{color:var(--red)}
+.client-hero-band{position:relative;height:220px;overflow:hidden;margin-bottom:2rem}
+.client-hero-band-fade{position:absolute;inset:0;background:linear-gradient(to top,#141414 0%,transparent 60%)}
+.client-hero-text{position:absolute;bottom:1.5rem;left:2rem;z-index:2}
+.client-eyebrow{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--red);margin-bottom:0.3rem}
+.client-title{font-size:clamp(1.8rem,4vw,3rem);font-weight:700;color:#fff;line-height:1.05}
+.client-subtitle{font-size:12px;color:#aaa;margin-top:0.25rem}
+.cs{margin-bottom:1.75rem}
+.cs h2{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#555;margin-bottom:0.6rem}
+.cs p{font-size:15px;color:var(--text);line-height:1.75;margin-bottom:0.7rem}
+.cs p:last-child{margin-bottom:0}
+.metrics-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;margin-bottom:0.75rem}
+.metric-box{background:var(--surface2);padding:0.85rem 1rem}
+.metric-val{font-size:22px;font-weight:700;color:var(--red);display:block;line-height:1.2}
+.metric-lbl{font-size:10px;color:var(--muted);display:block;margin-top:2px}
+.sample-list{list-style:none;border-top:1px solid var(--faint)}
+.sample-list li{border-bottom:1px solid var(--faint);padding:0.6rem 0;font-size:14px;color:var(--text);display:flex;justify-content:space-between;align-items:center}
+.sample-list li span{color:#555;font-size:12px}
+.tools-row{display:flex;gap:6px;flex-wrap:wrap}
+.tool-pill{font-size:11px;padding:4px 10px;border:1px solid #444;color:var(--muted)}
+.client-quote{border-left:3px solid var(--red);padding:1rem 0 1rem 1.25rem;margin-top:0.5rem}
+.client-quote blockquote{font-size:15px;font-style:italic;line-height:1.8;color:var(--text);margin-bottom:0.65rem}
+.client-quote cite{font-size:12px;font-style:normal;color:var(--muted)}
+.track-block{background:var(--surface2);padding:0.85rem 1rem;margin-bottom:8px;border-left:2px solid var(--red)}
+.track-block strong{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:3px}
+.track-block p{font-size:14px;color:var(--text);line-height:1.65;margin:0}
+.process-steps{list-style:none;counter-reset:steps}
+.process-steps li{counter-increment:steps;display:flex;gap:1rem;margin-bottom:1rem;align-items:flex-start}
+.process-steps li::before{content:counter(steps,decimal-leading-zero);font-size:13px;color:var(--red);font-weight:700;min-width:22px;margin-top:1px}
+.step-content strong{display:block;font-size:13px;font-weight:500;color:var(--text);margin-bottom:2px}
+.step-content p{font-size:14px;color:var(--muted);line-height:1.6;margin:0}
+.divider{border:none;border-top:1px solid var(--faint)}
+.about-wrap{max-width:800px;margin:0 auto;padding:3rem 4% 5rem}
+.about-hero{display:grid;grid-template-columns:180px 1fr;gap:2.5rem;align-items:start;margin-bottom:3rem;padding-bottom:2.5rem;border-bottom:1px solid var(--faint)}
+.about-name{font-size:2.2rem;font-weight:700;color:#fff;line-height:1.05;margin-bottom:0.4rem}
+.about-roles{font-size:11px;color:var(--red);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:1.5rem;line-height:2}
+.about-tagline{font-size:18px;color:#ccc;line-height:1.6}
+.about-body{font-size:15px;color:var(--muted);line-height:1.85}
+.about-body p{margin-bottom:1.1rem}
+.about-body p:last-child{margin-bottom:0}
+.about-body strong{color:var(--text);font-weight:500}
+.about-body em{font-style:italic;color:#ccc}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-logo" onclick="showPage('home')">Aakanksha A.</div>
+  <ul class="nav-links">
+    <li><a href="#" id="nav-home" class="active" onclick="showPage('home')">Home</a></li>
+    <li><a href="#" id="nav-work" onclick="scrollToClients()">Work</a></li>
+    <li><a href="#" id="nav-about" onclick="showPage('about')">About</a></li>
+    <li><a class="nav-contact" onclick="scrollToContact()">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HOME -->
+<div id="page-home" class="page active">
+  <div class="hero">
+    <div class="hero-fade"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Content sorceress who<br>sprinkles <em>magic dust.</em></h1>
+      <p class="hero-badge">AI content editor &nbsp;·&nbsp; Writer &amp; Thinker &nbsp;·&nbsp; Ex-product manager &nbsp;·&nbsp; Ex-journalist</p>
+      <p class="hero-desc">Tech content for startups built on a decade of journalism, product management, and content writing and editing.</p>
+      <div class="hero-btns">
+        <button class="btn-red" onclick="scrollToClients()">See My Work</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" id="clients-section">
+    <p class="row-label">Selected Clients</p>
+    <div class="scroll-row">
+      <div class="nf-card" onclick="showClient('exponent')">
+        <div class="nf-thumb" style="background:linear-gradient(135deg,#1a0505,#2a0a0a)"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:2.2rem;font-weight:900;color:rgba(229,9,20,0.25)">EXP</span></div><div class="nf-thumb-overlay"></div><div class="nf-thumb-label"><div class="nf-company">Exponent</div></div></div>
+        <div class="nf-info"><p class="nf-desc">35 guides driving PM, EM, TPM conversion.</p></div>
+      </div>
+      <div class="nf-card" onclick="showClient('clickup')">
+        <div class="nf-thumb" style="background:linear-gradient(135deg,#0d0a20,#1a1440)"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:2.2rem;font-weight:900;color:rgba(123,104,238,0.25)">CU</span></div><div class="nf-thumb-overlay"></div><div class="nf-thumb-label"><div class="nf-company">ClickUp</div></div></div>
+        <div class="nf-info"><p class="nf-desc">250+ blogs/month. 2% avg, 10–11% top conversion.</p></div>
+      </div>
+      <div class="nf-card" onclick="showClient('capitalwe')">
+        <div class="nf-thumb" style="background:linear-gradient(135deg,#0a1a10,#102015)"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:2.2rem;font-weight:900;color:rgba(76,175,80,0.25)">CW</span></div><div class="nf-thumb-overlay"></div><div class="nf-thumb-label"><div class="nf-company">CapitalWe</div></div></div>
+        <div class="nf-info"><p class="nf-desc">88% readership growth. 80% open rate.</p></div>
+      </div>
+      <div class="nf-card" onclick="showClient('thriving')">
+        <div class="nf-thumb" style="background:linear-gradient(135deg,#0f0a18,#180f25)"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:2.2rem;font-weight:900;color:rgba(156,39,176,0.25)">TS</span></div><div class="nf-thumb-overlay"></div><div class="nf-thumb-label"><div class="nf-company">Thriving Springs</div></div></div>
+        <div class="nf-info"><p class="nf-desc">Blog engine from zero in 2 months.</p></div>
+      </div>
+      <div class="nf-card" onclick="showClient('ima')">
+        <div class="nf-thumb" style="background:linear-gradient(135deg,#181200,#221a00)"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:2.2rem;font-weight:900;color:rgba(255,193,7,0.25)">IMA</span></div><div class="nf-thumb-overlay"></div><div class="nf-thumb-label"><div class="nf-company">IMA India</div></div></div>
+        <div class="nf-info"><p class="nf-desc">20 papers, 1,000+ CXO subscribers.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="row">
+    <p class="row-label">Client Voices</p>
+    <div class="scroll-row" style="gap:10px">
+      <div class="testi-card"><blockquote>"When we have an important assignment we need to get right the first time, it goes to Aakanksha."</blockquote><p class="testi-attr">Kevin Landucci, SME and Interview Coach, Exponent</p></div>
+      <div class="testi-card"><blockquote>"Even when provided with just the seed of an idea, she could turn it into a compelling piece of content."</blockquote><p class="testi-attr">Vrishin Subramaniam, Founder, CapitalWe</p></div>
+      <div class="testi-card"><blockquote>"Her structural and copy edits elevate a piece into something that sticks with the reader."</blockquote><p class="testi-attr">Garima Behal, Senior Content Editor, Scalerrs</p></div>
+      <div class="testi-card"><blockquote>"She approaches every project with a solutions-first mindset and leads with both empathy and impact."</blockquote><p class="testi-attr">Neeraj Dautlani, Senior Director, HealthCred</p></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="skills-section">
+    <p class="row-label">Skills</p>
+    <div class="skills-grid">
+      <div class="skill-box"><div class="skill-name">AI content editing &amp; production</div><div class="skill-desc">Humanising AI drafts, prompt workflows, AI-assisted research pipelines, end-to-end AI content production</div></div>
+      <div class="skill-box"><div class="skill-name">Content strategy</div><div class="skill-desc">0-1 organic playbooks, editorial calendars, SEO mapping, brief writing</div></div>
+      <div class="skill-box"><div class="skill-name">Ghostwriting</div><div class="skill-desc">Voice matching, executive newsletters, founder thought leadership</div></div>
+      <div class="skill-box"><div class="skill-name">Technical content</div><div class="skill-desc">PM, TPM, engineering, SaaS product docs simplified for any audience</div></div>
+      <div class="skill-box"><div class="skill-name">AEO &amp; GEO</div><div class="skill-desc">Answer Engine Optimisation and Generative Engine Optimisation — content built to surface in AI-powered search</div></div>
+    </div>
+  
+  </div>
+
+  <hr class="divider">
+
+  <div class="faq-section">
+    <p class="row-label">Frequently Asked Questions</p>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">How do you price your work?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>I work on three models depending on what fits the engagement best: per blog or asset, monthly retainer, or a consulting basis for strategy and editorial support. Pricing varies by scope, research depth, and turnaround. The best way to figure out what makes sense for your project is to get in touch and share a brief overview of what you need.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">What kind of technical content do you specialise in?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>My focus is fintech, SaaS, and product-adjacent content: interview guides for PM and engineering roles, product and growth strategy blogs, newsletters for financial planning businesses, and consulting papers for senior business audiences. My background in journalism and product management means I can work with genuinely complex material and make it readable for the right audience, without losing what makes it useful.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">How do you work with clients?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>I am deeply involved with every client I take on. Before I write a single word, I want to understand your content goals, what success looks like, who your readers are, and what your workflow looks like. I ask a lot of questions about your expectations, your audience, your existing content, and what has been tried before. Once we are aligned, I work independently and flag anything that needs input along the way. The goal is for you to barely notice I am freelance.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Do you work with AI-generated content?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>Yes. I write fully original content when that is what a project needs, and I also edit and humanise AI-generated drafts for clients running high-volume content operations. At ClickUp and Exponent, a significant portion of my work involved taking AI-first drafts and making them publish-ready: accurate, on-brand, and genuinely useful to readers.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Do you work with early-stage startups?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>Yes, and I enjoy it. I have helped a pre-seed LMS startup build their entire blog operation from scratch, ghostwritten newsletters for solo founders, and written interview guides for a fast-growing career platform. If you are figuring things out as you go, that is fine. That is usually where the most interesting problems live.</p></div>
+    </div>
+  </div>
+
+  <div class="contact-section" id="contact-section">
+    <div class="contact-inner">
+      <h2>Get in touch</h2>
+      <p>If you are building something that needs someone to dabble, ask a lot of questions, and care about the work, reach out. I read every email.</p>
+      <a class="contact-email" href="mailto:aakankshaahuja12@gmail.com">aakankshaahuja12@gmail.com</a>
+    </div>
+  </div>
+</div>
+
+<!-- EXPONENT -->
+<div id="page-exponent" class="page">
+  <div class="client-hero-band" style="background:linear-gradient(135deg,#0d0d0d,#2a0505)"><div class="client-hero-band-fade"></div><div class="client-hero-text"><p class="client-eyebrow">Interview Guides</p><h1 class="client-title">Exponent</h1><p class="client-subtitle">Senior Technical Contributor · December 2024–Present</p></div></div>
+  <div class="client-wrap">
+    <button class="back-btn" onclick="showPage('home')">&#8592; Back</button>
+    <div class="cs"><h2>The Brief</h2><p>Exponent needed interview guides that could rank organically and convert free users to paid course subscribers. These guides are the platform's highest-ROI content and the primary entry point into the funnel.</p></div>
+    <div class="cs"><h2>My Role</h2><p>I have written 35 guides across PM, TPM, EM, Designer, Growth Analyst, and Strategy/BizOps roles. 25 were written entirely from scratch, and 10 involved research, fact-checking, and editing AI-assisted drafts into publish-ready content.</p><p>Each guide is built on two layers of research. For primary research, I talk to subject matter experts who have interviewed at or hired for the specific company and role. For secondary research, I dig through Glassdoor, Blind, Quora, Reddit, Medium, LinkedIn, and YouTube to surface specific candidate accounts, interviewer patterns, and round-by-round details that are otherwise scattered across the internet.</p></div>
+    <div class="cs"><h2>What Makes These Hard to Write</h2><p>A good interview guide knows how Google's PM interview differs from Meta's, what a DoorDash strategy round looks for versus a Stripe one, and what candidates consistently get wrong at each company. That level of specificity comes from doing the research at depth and having enough domain fluency to know what is signal and what is noise.</p></div>
+    <div class="cs"><h2>Results</h2><p>Exponent's interview guides are its primary free-to-paid conversion driver. My 35 guides are a significant part of that content library, with the Google PM, Meta PM, and Facebook EM guides ranking among the platform's top-converting pages.</p></div>
+    <div class="cs"><h2>Sample Work</h2><ul class="sample-list"><li>Discord Product Manager Interview Guide <span>&#8594;</span></li><li>Google Strategy and Ops Interview Guide <span>&#8594;</span></li><li>Pinterest Product Manager Interview Guide <span>&#8594;</span></li><li>Capital One Engineering Manager Interview Guide <span>&#8594;</span></li></ul></div>
+    <div class="cs"><h2>Tools</h2><div class="tools-row"><span class="tool-pill">Contentful</span><span class="tool-pill">Notion</span><span class="tool-pill">Loom</span></div></div>
+    <div class="cs"><h2>What the Client Says</h2><div class="client-quote"><blockquote>"Aakanksha is an excellent writer, researcher, and teammate. She's become a reliable force on our team; when we have an important assignment we need to get right the first time, it goes to Aakanksha. She can write for technical audiences or general audiences. Her work has improved with time; she is self-driven to grow. If you're looking for a freelance writer with consistent quality output you can count on, Aakanksha is a strong choice."</blockquote><cite>Kevin Landucci, SME and Interview Coach, Exponent</cite></div></div>
+  </div>
+</div>
+
+<!-- CLICKUP -->
+<div id="page-clickup" class="page">
+  <div class="client-hero-band" style="background:linear-gradient(135deg,#0d0a20,#1a1440)"><div class="client-hero-band-fade"></div><div class="client-hero-text"><p class="client-eyebrow">Content Editing · SaaS</p><h1 class="client-title">ClickUp</h1><p class="client-subtitle">Senior Content Editor · July 2024–December 2025</p></div></div>
+  <div class="client-wrap">
+    <button class="back-btn" onclick="showPage('home')">&#8592; Back</button>
+    <div class="cs"><h2>The Brief</h2><p>ClickUp's blog is one of the highest-traffic SaaS blogs on the internet, with millions of monthly visitors. The organic content engine is ClickUp's highest ROI channel, driving free workspace signups directly from search.</p></div>
+    <div class="cs"><h2>My Role</h2><p>I worked as a Senior Content Editor on an 8-member team, editing, humanizing, and publishing 250+ blogs per month across two tracks:</p><div class="track-block"><strong>Agency content editing</strong><p>Editing blogs sourced from external agencies: comparison articles, listicles, soft pieces, and long-form guides. Approximately 600 blogs edited this way.</p></div><div class="track-block"><strong>AI-first content</strong><p>Taking AI-generated drafts, editing them into human, publish-ready content, and seeing them through to publication. 20 blogs produced through this track.</p></div></div>
+    <div class="cs"><h2>What Makes This Hard to Do</h2><p>Editing at this volume without losing quality is the challenge. Every piece needs to sound like ClickUp, not like an agency, not like an AI. That means catching not just grammar and structure but tone, accuracy, and whether the content actually serves the reader. At 250+ blogs a month, there is no room for a slow pass.</p></div>
+    <div class="cs"><h2>Results</h2><div class="metrics-row"><div class="metric-box"><span class="metric-val">2%</span><span class="metric-lbl">Avg conversion to free signups</span></div><div class="metric-box"><span class="metric-val">10–11%</span><span class="metric-lbl">Top keyword conversion rate</span></div><div class="metric-box"><span class="metric-val">600+</span><span class="metric-lbl">Blogs edited</span></div></div></div>
+    <div class="cs"><h2>Sample Work</h2><ul class="sample-list"><li>Internal Product Management to Enhance Development Success <span>&#8594;</span></li><li>How to Make a Routine With ADHD <span>&#8594;</span></li><li>Types of Project Management <span>&#8594;</span></li><li>Revenue Growth Rate <span>&#8594;</span></li><li>Capacity Planning Templates for Excel <span>&#8594;</span></li></ul></div>
+    <div class="cs"><h2>Tools</h2><div class="tools-row"><span class="tool-pill">WordPress</span><span class="tool-pill">Amplitude</span><span class="tool-pill">ClickUp</span></div></div>
+    <div class="cs"><h2>What the Client Says</h2><div class="client-quote"><blockquote>"Aakanksha is a curious, self-driven, and reliable editor with a keen eye for detail and an obsession for not just grammatical accuracy but also narrative building. Her structural and copy edits elevate a piece into something that sticks with the reader; her habit of diving deep lends a uniqueness to each piece she edits. She's also a fun teammate to have, with her multiple diverse interests (from poetry to healing) making for beautiful conversations. Any team would be lucky to have her as both a creative, original writer and an analytical editor."</blockquote><cite>Garima Behal, Senior Content Editor, Scalerrs (formerly ClickUp team)</cite></div></div>
+  </div>
+</div>
+
+<!-- CAPITALWE -->
+<div id="page-capitalwe" class="page">
+  <div class="client-hero-band" style="background:linear-gradient(135deg,#0a1a10,#102015)"><div class="client-hero-band-fade"></div><div class="client-hero-text"><p class="client-eyebrow">Newsletter · Fintech</p><h1 class="client-title">CapitalWe</h1><p class="client-subtitle">Newsletter Writer · August 2024–May 2025</p></div></div>
+  <div class="client-wrap">
+    <button class="back-btn" onclick="showPage('home')">&#8592; Back</button>
+    <div class="cs"><h2>The Brief</h2><p>CapitalWe is a financial planning firm serving Indian immigrants in the US: H1B, L1, and Green Card holders navigating an unfamiliar financial system. Vrishin, the founder, needed a fortnightly newsletter that could educate his audience, build trust, and convert readers into consultation clients.</p></div>
+    <div class="cs"><h2>My Role</h2><p>I ghostwrote 25+ fortnightly newsletters entirely in Vrishin's voice, covering personal finance, investing, tax planning, and immigration-specific money decisions. The newsletter functions as TOFU content, warming readers up for a free consultation and eventual client conversion.</p></div>
+    <div class="cs"><h2>My Process</h2><p>Every newsletter started with a seed idea from Vrishin: sometimes a question from a client, sometimes a news event, sometimes a financial concept worth demystifying. My job was to turn that seed into a piece that felt personal, grounded in data, and genuinely useful for someone figuring out the US financial system for the first time.</p><p>Writing in someone else's voice meant getting Vrishin's tone right: warm, direct, and never condescending about money. Each issue was researched, written, and delivered to a fortnightly deadline without exception.</p></div>
+    <div class="cs"><h2>Results</h2><div class="metrics-row"><div class="metric-box"><span class="metric-val">88%</span><span class="metric-lbl">Readership growth in 5 months</span></div><div class="metric-box"><span class="metric-val">80%</span><span class="metric-lbl">Open rate</span></div><div class="metric-box"><span class="metric-val">0.1–0.5%</span><span class="metric-lbl">Reader to client conversion</span></div></div></div>
+    <div class="cs"><h2>Sample Work</h2><ul class="sample-list"><li>3 Money Strategies for Immigrants During Presidential Elections 2024 <span>&#8594;</span></li><li>Money Lessons from the Olympics: Paris 2024 <span>&#8594;</span></li><li>Free Financial Advice Is Free for a Reason <span>&#8594;</span></li></ul></div>
+    <div class="cs"><h2>Tools</h2><div class="tools-row"><span class="tool-pill">Kit (ConvertKit)</span><span class="tool-pill">Notion</span></div></div>
+    <div class="cs"><h2>What the Client Says</h2><div class="client-quote"><blockquote>"I had the pleasure of working with Aakanksha on a newsletter for my finance business. From the outset, she quickly adapted to the systems and frameworks we had in place and was consistently dependable in meeting, and often beating, deadlines. Aakanksha brings a strong sense of narrative and a voice that's both engaging and informal — exactly what I was looking for in communicating with my audience. She is highly responsive to feedback and able to adjust smoothly to changes in direction or timing, which made collaborating with her a seamless experience. Even when provided with just the seed of an idea, she could turn it into a compelling piece of content."</blockquote><cite>Vrishin Subramaniam, Founder, CapitalWe</cite></div></div>
+  </div>
+</div>
+
+<!-- THRIVING SPRINGS -->
+<div id="page-thriving" class="page">
+  <div class="client-hero-band" style="background:linear-gradient(135deg,#0f0a18,#180f25)"><div class="client-hero-band-fade"></div><div class="client-hero-text"><p class="client-eyebrow">Content Lead · SaaS / LMS</p><h1 class="client-title">Thriving Springs</h1><p class="client-subtitle">Content Lead · November–December 2024</p></div></div>
+  <div class="client-wrap">
+    <button class="back-btn" onclick="showPage('home')">&#8592; Back</button>
+    <div class="cs"><h2>The Brief</h2><p>Thriving Springs is a pre-seed AI-powered LMS startup that needed to build its blog engine from scratch. They had no existing content operation: no team, no briefs, no process. The goal was to establish organic content as a growth channel from zero. The engagement ran for two months, limited by the startup's early-stage funding.</p></div>
+    <div class="cs"><h2>My Role</h2><p>I came in as the full content lead, not just a writer or editor, but the person responsible for standing up the entire operation. I sourced the client through my network, assembled a two-writer team also from my network, and managed the end-to-end content pipeline from brief to final delivery.</p></div>
+    <div class="cs"><h2>My Process</h2><ul class="process-steps"><li><div class="step-content"><strong>Client relationship</strong><p>Managed the relationship directly with their marketing manager, handling scope, timelines, feedback cycles, and final delivery.</p></div></li><li><div class="step-content"><strong>Team building</strong><p>Sourced and onboarded two freelance writers from my network, matching them to LMS and e-learning topics that suited their strengths.</p></div></li><li><div class="step-content"><strong>Brief writing</strong><p>Every blog started with a brief I drafted, covering the target keyword, intended audience, content structure, key angles, and internal linking opportunities.</p></div></li><li><div class="step-content"><strong>Editing and feedback</strong><p>Reviewed every draft, gave detailed written feedback, and edited final versions into publish-ready content before delivery.</p></div></li></ul></div>
+    <div class="cs"><h2>Results</h2><p>In two months, Thriving Springs went from no content operation to a functioning blog engine with a library of published LMS and e-learning guides targeting high-intent B2B keywords.</p></div>
+    <div class="cs"><h2>Sample Work</h2><ul class="sample-list"><li>How to Choose the Best SaaS LMS in 2025 <span>&#8594;</span></li><li>Top 10 Customer Training Software Tools for 2025 <span>&#8594;</span></li><li>Top 11 LMS Features You Should Consider Before Buying <span>&#8594;</span></li><li>LMS for Frontline Training in E-commerce <span>&#8594;</span></li></ul></div>
+  </div>
+</div>
+
+<!-- IMA INDIA -->
+<div id="page-ima" class="page">
+  <div class="client-hero-band" style="background:linear-gradient(135deg,#181200,#221a00)"><div class="client-hero-band-fade"></div><div class="client-hero-text"><p class="client-eyebrow">Research Papers · Consulting</p><h1 class="client-title">IMA India</h1><p class="client-subtitle">Research Writer · 20 papers over 6 months</p></div></div>
+  <div class="client-wrap">
+    <button class="back-btn" onclick="showPage('home')">&#8592; Back</button>
+    <div class="cs"><h2>The Brief</h2><p>IMA India is a boutique consulting firm whose monthly research papers go out to 1,000+ CXOs on a subscription basis. The papers keep IMA top of mind for its members: CMOs, CHROs, and other senior leaders, and carry real value as executive-level thought leadership.</p></div>
+    <div class="cs"><h2>My Role</h2><p>I researched and wrote consulting papers based on roundtable discussions with senior business leaders. Each paper synthesized the key insights, debates, and takeaways from those conversations into a polished, publication-ready report for a CXO audience. Over six months, I wrote 20 papers, roughly one every nine days, covering topics across marketing, HR, strategy, and leadership.</p></div>
+    <div class="cs"><h2>What Makes These Hard to Write</h2><p>CXO readers are time-poor and skeptical. A paper that reads like a summary gets skipped. One that reads like genuine analysis gets shared. That meant understanding the roundtable material deeply enough to have a perspective on it, not just report it.</p></div>
+    <div class="cs"><h2>Results</h2><div class="metrics-row"><div class="metric-box"><span class="metric-val">20</span><span class="metric-lbl">Papers in 6 months</span></div><div class="metric-box"><span class="metric-val">1,000+</span><span class="metric-lbl">CXO subscribers per paper</span></div></div></div>
+    <div class="cs"><h2>Sample Work</h2><ul class="sample-list"><li>Leveraging Behavioural Analytics to Improve Decision Making <span>&#8594;</span></li><li>The New CMO Mandate: Becoming a Growth Driver <span>&#8594;</span></li><li>Business Lessons from a Successful Start-up: The Udaan Story <span>&#8594;</span></li><li>Redesigning the Workplace for a Competitive Advantage: The Role of CHRO <span>&#8594;</span></li></ul></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div id="page-about" class="page">
+  <div class="about-wrap">
+    <div class="about-hero" style="grid-template-columns:1fr;gap:1rem">
+      <div>
+        <h1 class="about-name">Aakanksha A.</h1>
+        <p class="about-roles">AI content editor · Writer and thinker · Ex-PM · Ex-founder's office · Ex-journalist</p>
+        <p class="about-tagline">I follow my curiosity for a living. It's worked out so far.</p>
+      </div>
+    </div>
+    <div class="about-body">
+      <p>I am a dabbler at heart.</p>
+      <p>I have changed careers three times in the last decade. Some might call it foolish, even unhealthy, but here I am.</p>
+      <p>I started out as a journalist at <strong>Mint</strong>, then moved into a <strong>founder's office role</strong> at a pre-Series A startup, followed by <strong>product manager stints at two fintechs</strong>. Now I operate as a tech marketer and content strategist. Non-linear careers come with risk and a lot of uncertainty, but every time I have taken the leap, I have hoped it all makes sense in the end.</p>
+      <p>It has, in a lot of ways.</p>
+      <p>I have applied what I learned as a journalist to working with 0-1 founders. I have built content playbooks for technical audiences and interview guides with the knowledge I picked up as a PM. My sweet spot is working on a bunch of different problems and finding interesting, creative ways to solve them.</p>
+      <p>I am also a poet, a badminton player, and currently learning how to improve my swimming strokes. I am based in <strong>Goa, India</strong>, where I live with my future dog, Poeee.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.nav-links a:not(.nav-contact)').forEach(a=>a.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');const nav=document.getElementById('nav-'+id);if(nav)nav.classList.add('active');window.scrollTo(0,0);}
+function showClient(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById('page-'+id).classList.add('active');window.scrollTo(0,0);}
+function scrollToClients(){showPage('home');setTimeout(()=>{const el=document.getElementById('clients-section');if(el)el.scrollIntoView({behavior:'smooth'});},100);}
+function scrollToContact(){showPage('home');setTimeout(()=>{const el=document.getElementById('contact-section');if(el)el.scrollIntoView({behavior:'smooth'});},100);}
+function toggleFaq(btn){const answer=btn.nextElementSibling;const icon=btn.querySelector('.faq-icon');const isOpen=answer.classList.contains('open');document.querySelectorAll('.faq-a.open').forEach(a=>{a.classList.remove('open');a.previousElementSibling.querySelector('.faq-icon').classList.remove('open');});if(!isOpen){answer.classList.add('open');icon.classList.add('open');}}
+</script>
+</body>
+</html>
