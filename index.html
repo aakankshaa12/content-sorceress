@@ -31,24 +31,24 @@ nav{background:rgba(0,0,0,0.92);padding:0 4%;height:68px;display:flex;align-item
 .row-label{font-size:16px;font-weight:500;color:var(--text);margin-bottom:1rem;padding-top:1.5rem}
 .scroll-row{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px}
 .scroll-row::-webkit-scrollbar{height:0}
-.nf-card{flex:0 0 280px;cursor:pointer;position:relative;transition:transform 0.25s}
+.nf-card{flex:0 0 320px;cursor:pointer;position:relative;transition:transform 0.25s}
 .nf-card:hover{transform:scale(1.04);z-index:10}
-.nf-thumb{width:100%;height:160px;position:relative;overflow:hidden;background:#000}
+.nf-thumb{width:100%;height:180px;position:relative;overflow:hidden;background:#000}
 .nf-thumb-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.7) 0%,transparent 60%)}
 .nf-thumb-label{position:absolute;bottom:8px;left:8px;right:8px}
-.nf-company{font-size:15px;font-weight:700;color:#fff;line-height:1.1}
+.nf-company{font-size:17px;font-weight:700;color:#fff;line-height:1.1}
 .nf-role{font-size:9px;letter-spacing:0.07em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-top:2px}
-.nf-info{padding:6px 0 0}
-.nf-desc{font-size:13px;color:var(--muted);line-height:1.5}
+.nf-info{padding:10px 0 0}
+.nf-desc{font-size:15px;color:var(--muted);line-height:1.5}
 .testi-card{flex:0 0 320px;background:var(--surface);border:1px solid var(--faint);padding:1.25rem}
 .testi-card blockquote{font-size:15px;font-style:italic;color:var(--text);line-height:1.7;margin-bottom:0.75rem;border-left:3px solid var(--red);padding-left:0.9rem}
 .testi-attr{font-size:13px;color:var(--muted)}
 
 .skills-section{padding:0 4% 2.5rem}
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:8px;margin-bottom:1.5rem}
-.skill-box{background:var(--surface);padding:0.9rem 1rem;border-left:3px solid var(--red)}
-.skill-name{font-size:15px;font-weight:500;color:var(--text);margin-bottom:3px}
-.skill-desc{font-size:13px;color:var(--muted);line-height:1.5}
+.skills-grid{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:1.5rem}
+.skill-box{background:var(--surface);padding:1.2rem;border-left:3px solid var(--red);flex:1;min-width:280px}
+.skill-name{font-size:17px;font-weight:500;color:var(--text);margin-bottom:8px;white-space:nowrap}
+.skill-desc{font-size:14px;color:var(--muted);line-height:1.6}
 .tools-grid{display:flex;flex-wrap:wrap;gap:8px}
 .tool-chip{font-size:12px;font-weight:500;padding:6px 14px;border:1px solid var(--faint);color:var(--muted);background:var(--surface)}
 
@@ -66,12 +66,16 @@ nav{background:rgba(0,0,0,0.92);padding:0 4%;height:68px;display:flex;align-item
 .contact-inner{max-width:560px}
 .contact-inner h2{font-size:1.6rem;font-weight:700;color:#fff;margin-bottom:0.75rem}
 .contact-inner p{font-size:15px;color:var(--muted);line-height:1.75;margin-bottom:1.5rem}
+.contact-links{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
 .contact-email{display:inline-block;font-size:16px;font-weight:500;color:var(--red);text-decoration:none;border-bottom:1px solid var(--red);padding-bottom:2px;transition:color 0.15s}
 .contact-email:hover{color:#fff;border-color:#fff}
+.contact-linkedin{display:inline-flex;align-items:center;gap:6px;font-size:16px;font-weight:500;color:var(--red);text-decoration:none;padding-bottom:2px;transition:color 0.15s}
+.contact-linkedin:hover{color:#fff}
+.contact-linkedin img{width:20px;height:20px}
 
 .client-wrap{max-width:850px;margin:0 auto;padding:2rem 4% 5rem}
-.back-btn{font-size:13px;color:var(--muted);background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:6px;margin-bottom:1.5rem;transition:color 0.15s;font-family:var(--sans)}
-.back-btn:hover{color:var(--red)}
+.back-btn{font-size:16px;font-weight:600;color:var(--red);background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:8px;margin-bottom:1.5rem;transition:all 0.15s;font-family:var(--sans)}
+.back-btn:hover{color:#fff;transform:translateX(-4px)}
 .client-hero-band{position:relative;height:220px;overflow:hidden;margin-bottom:2rem}
 .client-hero-band-fade{position:absolute;inset:0;background:linear-gradient(to top,#141414 0%,transparent 60%)}
 .client-hero-text{position:absolute;bottom:1.5rem;left:2rem;z-index:2}
@@ -80,14 +84,16 @@ nav{background:rgba(0,0,0,0.92);padding:0 4%;height:68px;display:flex;align-item
 .client-subtitle{font-size:12px;color:#aaa;margin-top:0.25rem}
 .cs{margin-bottom:1.75rem}
 .cs h2{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#555;margin-bottom:0.6rem}
-.cs p{font-size:15px;color:var(--text);line-height:1.75;margin-bottom:0.7rem}
+.cs p{font-size:16px;color:var(--text);line-height:1.75;margin-bottom:0.7rem}
 .cs p:last-child{margin-bottom:0}
 .metrics-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;margin-bottom:0.75rem}
 .metric-box{background:var(--surface2);padding:0.85rem 1rem}
 .metric-val{font-size:22px;font-weight:700;color:var(--red);display:block;line-height:1.2}
 .metric-lbl{font-size:10px;color:var(--muted);display:block;margin-top:2px}
 .sample-list{list-style:none;border-top:1px solid var(--faint)}
-.sample-list li{border-bottom:1px solid var(--faint);padding:0.6rem 0;font-size:14px;color:var(--text);display:flex;justify-content:space-between;align-items:center}
+.sample-list li{border-bottom:1px solid var(--faint);padding:0.8rem 0;font-size:15px;color:var(--text);display:flex;justify-content:space-between;align-items:center}
+.sample-list li a{color:var(--text);text-decoration:none;transition:color 0.15s}
+.sample-list li a:hover{color:var(--red)}
 .sample-list li span{color:#555;font-size:12px}
 .tools-row{display:flex;gap:6px;flex-wrap:wrap}
 .tool-pill{font-size:11px;padding:4px 10px;border:1px solid #444;color:var(--muted)}
@@ -113,6 +119,7 @@ nav{background:rgba(0,0,0,0.92);padding:0 4%;height:68px;display:flex;align-item
 .about-body p:last-child{margin-bottom:0}
 .about-body strong{color:var(--text);font-weight:500}
 .about-body em{font-style:italic;color:#ccc}
+.ima-note{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:0.75rem;font-style:italic}
 </style>
 </head>
 <body>
@@ -131,8 +138,8 @@ nav{background:rgba(0,0,0,0.92);padding:0 4%;height:68px;display:flex;align-item
   <div class="hero">
     <div class="hero-fade"></div>
     <div class="hero-content">
-      <h1 class="hero-title">Content sorceress who<br>sprinkles <em>magic dust.</em></h1>
-      <p class="hero-badge">AI content editor &nbsp;·&nbsp; Writer &amp; Thinker &nbsp;·&nbsp; Ex-product manager &nbsp;·&nbsp; Ex-journalist</p>
+      <h1 class="hero-title">Content sorceress who<br>sprinkling <em>magic dust.</em></h1>
+      <p class="hero-badge">B2B SaaS, Fin-tech, Ed-tech, and ghostwriting for CXO audiences</p>
       <p class="hero-desc">Tech content for startups built on a decade of journalism, product management, and content writing and editing.</p>
       <div class="hero-btns">
         <button class="btn-red" onclick="scrollToClients()">See My Work</button>
@@ -145,23 +152,27 @@ nav{background:rgba(0,0,0,0.92);padding:0 4%;height:68px;display:flex;align-item
     <div class="scroll-row">
       <div class="nf-card" onclick="showClient('exponent')">
         <div class="nf-thumb" style="background:linear-gradient(135deg,#1a0505,#2a0a0a)"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:2.2rem;font-weight:900;color:rgba(229,9,20,0.25)">EXP</span></div><div class="nf-thumb-overlay"></div><div class="nf-thumb-label"><div class="nf-company">Exponent</div></div></div>
-        <div class="nf-info"><p class="nf-desc">35 guides driving PM, EM, TPM conversion.</p></div>
+        <div class="nf-info"><p class="nf-desc">Ed-tech <span style="color:#555;">|</span> 35+ Interview Guides for FAANG roles</p></div>
       </div>
       <div class="nf-card" onclick="showClient('clickup')">
         <div class="nf-thumb" style="background:linear-gradient(135deg,#0d0a20,#1a1440)"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:2.2rem;font-weight:900;color:rgba(123,104,238,0.25)">CU</span></div><div class="nf-thumb-overlay"></div><div class="nf-thumb-label"><div class="nf-company">ClickUp</div></div></div>
-        <div class="nf-info"><p class="nf-desc">250+ blogs/month. 2% avg, 10–11% top conversion.</p></div>
+        <div class="nf-info"><p class="nf-desc">B2B SaaS <span style="color:#555;">|</span> 600+ Product-Led blogs</p></div>
       </div>
       <div class="nf-card" onclick="showClient('capitalwe')">
-        <div class="nf-thumb" style="background:linear-gradient(135deg,#0a1a10,#102015)"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:2.2rem;font-weight:900;color:rgba(76,175,80,0.25)">CW</span></div><div class="nf-thumb-overlay"></div><div class="nf-thumb-label"><div class="nf-company">CapitalWe</div></div></div>
-        <div class="nf-info"><p class="nf-desc">88% readership growth. 80% open rate.</p></div>
+        <div class="nf-thumb" style="background:linear-gradient(135deg,#0a1a10,#102015)"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:2.2rem;font-weight:900;color:rgba(76,175,80,0.25)">CW</span></div><div class="nf-thumb-overlay"></div><div class="nf-thumb-label"><div class="nf-company">Capital We</div></div></div>
+        <div class="nf-info"><p class="nf-desc">Financial Consulting <span style="color:#555;">|</span> 30+ newsletters</p></div>
       </div>
       <div class="nf-card" onclick="showClient('thriving')">
         <div class="nf-thumb" style="background:linear-gradient(135deg,#0f0a18,#180f25)"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:2.2rem;font-weight:900;color:rgba(156,39,176,0.25)">TS</span></div><div class="nf-thumb-overlay"></div><div class="nf-thumb-label"><div class="nf-company">Thriving Springs</div></div></div>
-        <div class="nf-info"><p class="nf-desc">Blog engine from zero in 2 months.</p></div>
+        <div class="nf-info"><p class="nf-desc">B2B SaaS <span style="color:#555;">|</span> Built the blog engine from scratch</p></div>
       </div>
       <div class="nf-card" onclick="showClient('ima')">
         <div class="nf-thumb" style="background:linear-gradient(135deg,#181200,#221a00)"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:2.2rem;font-weight:900;color:rgba(255,193,7,0.25)">IMA</span></div><div class="nf-thumb-overlay"></div><div class="nf-thumb-label"><div class="nf-company">IMA India</div></div></div>
-        <div class="nf-info"><p class="nf-desc">20 papers, 1,000+ CXO subscribers.</p></div>
+        <div class="nf-info"><p class="nf-desc">Boutique Consulting <span style="color:#555;">|</span> 20+ research papers for CXOs</p></div>
+      </div>
+      <div class="nf-card" onclick="showClient('htmint')">
+        <div class="nf-thumb" style="background:linear-gradient(135deg,#1a1410,#2a1f10)"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><span style="font-size:2.2rem;font-weight:900;color:rgba(200,160,100,0.25)">HT</span></div><div class="nf-thumb-overlay"></div><div class="nf-thumb-label"><div class="nf-company">HT Mint</div></div></div>
+        <div class="nf-info"><p class="nf-desc">Startups Journalist <span style="color:#555;">|</span> 150+ stories covering India's startup ecosystem</p></div>
       </div>
     </div>
   </div>
@@ -183,11 +194,9 @@ nav{background:rgba(0,0,0,0.92);padding:0 4%;height:68px;display:flex;align-item
   <div class="skills-section">
     <p class="row-label">Skills</p>
     <div class="skills-grid">
-      <div class="skill-box"><div class="skill-name">AI content editing &amp; production</div><div class="skill-desc">Humanising AI drafts, prompt workflows, AI-assisted research pipelines, end-to-end AI content production</div></div>
-      <div class="skill-box"><div class="skill-name">Content strategy</div><div class="skill-desc">0-1 organic playbooks, editorial calendars, SEO mapping, brief writing</div></div>
-      <div class="skill-box"><div class="skill-name">Ghostwriting</div><div class="skill-desc">Voice matching, executive newsletters, founder thought leadership</div></div>
-      <div class="skill-box"><div class="skill-name">Technical content</div><div class="skill-desc">PM, TPM, engineering, SaaS product docs simplified for any audience</div></div>
-      <div class="skill-box"><div class="skill-name">AEO &amp; GEO</div><div class="skill-desc">Answer Engine Optimisation and Generative Engine Optimisation — content built to surface in AI-powered search</div></div>
+      <div class="skill-box"><div class="skill-name">AI content producing and editing</div><div class="skill-desc">Building AI-led content engines at scale, humanising, and fact-checking AI assisted drafts, writing tailored specifically for LLMs, AEO and GEO</div></div>
+      <div class="skill-box"><div class="skill-name">Ghostwriting</div><div class="skill-desc">Tailored writing for founders, thought leaders and CXOs that matches their brand, tone and voice</div></div>
+      <div class="skill-box"><div class="skill-name">Technical Content</div><div class="skill-desc">Across Fin-tech, SaaS (mar-tech, AI-tech etc), Ed-tech, Micro-SaaS, including website content, product copy, blogs, FAQs</div></div>
     </div>
   
   </div>
@@ -204,17 +213,17 @@ nav{background:rgba(0,0,0,0.92);padding:0 4%;height:68px;display:flex;align-item
 
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">What kind of technical content do you specialise in?<span class="faq-icon">+</span></button>
-      <div class="faq-a"><p>My focus is fintech, SaaS, and product-adjacent content: interview guides for PM and engineering roles, product and growth strategy blogs, newsletters for financial planning businesses, and consulting papers for senior business audiences. My background in journalism and product management means I can work with genuinely complex material and make it readable for the right audience, without losing what makes it useful.</p></div>
+      <div class="faq-a"><p>Across Fin-tech, SaaS (mar-tech, AI-tech etc), Ed-tech, Micro-SaaS, including website content, product copy, blogs, FAQs. My background in journalism and product management means I can work with genuinely complex material and make it readable for the right audience, without losing what makes it useful.</p></div>
     </div>
 
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">How do you work with clients?<span class="faq-icon">+</span></button>
-      <div class="faq-a"><p>I am deeply involved with every client I take on. Before I write a single word, I want to understand your content goals, what success looks like, who your readers are, and what your workflow looks like. I ask a lot of questions about your expectations, your audience, your existing content, and what has been tried before. Once we are aligned, I work independently and flag anything that needs input along the way. The goal is for you to barely notice I am freelance.</p></div>
+      <div class="faq-a"><p>I am deeply involved with every client I take on. Before I write a single word, I want to understand your content goals, what success looks like, who your readers are, and what your workflow looks like. I ask a lot of questions about your expectations, your audience, your existing content, and what has been tried before. Once we are aligned, I work independently and flag anything that needs input along the way.</p></div>
     </div>
 
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">Do you work with AI-generated content?<span class="faq-icon">+</span></button>
-      <div class="faq-a"><p>Yes. I write fully original content when that is what a project needs, and I also edit and humanise AI-generated drafts for clients running high-volume content operations. At ClickUp and Exponent, a significant portion of my work involved taking AI-first drafts and making them publish-ready: accurate, on-brand, and genuinely useful to readers.</p></div>
+      <div class="faq-a"><p>Yes. I write fully original content when that is what a project needs, and I also edit and humanise AI-generated drafts for clients running high-volume content operations. At ClickUp and Exponent, a portion of my work involved taking AI-first drafts and making them publish-ready: accurate, on-brand, and genuinely useful to readers.</p></div>
     </div>
 
     <div class="faq-item">
@@ -227,7 +236,13 @@ nav{background:rgba(0,0,0,0.92);padding:0 4%;height:68px;display:flex;align-item
     <div class="contact-inner">
       <h2>Get in touch</h2>
       <p>If you are building something that needs someone to dabble, ask a lot of questions, and care about the work, reach out. I read every email.</p>
-      <a class="contact-email" href="mailto:aakankshaahuja12@gmail.com">aakankshaahuja12@gmail.com</a>
+      <div class="contact-links">
+        <a class="contact-email" href="mailto:aakankshaahuja12@gmail.com">aakankshaahuja12@gmail.com</a>
+        <a class="contact-linkedin" href="https://www.linkedin.com/in/aakanksha-ahuja-13/" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          LinkedIn
+        </a>
+      </div>
     </div>
   </div>
 </div>
@@ -241,7 +256,7 @@ nav{background:rgba(0,0,0,0.92);padding:0 4%;height:68px;display:flex;align-item
     <div class="cs"><h2>My Role</h2><p>I have written 35 guides across PM, TPM, EM, Designer, Growth Analyst, and Strategy/BizOps roles. 25 were written entirely from scratch, and 10 involved research, fact-checking, and editing AI-assisted drafts into publish-ready content.</p><p>Each guide is built on two layers of research. For primary research, I talk to subject matter experts who have interviewed at or hired for the specific company and role. For secondary research, I dig through Glassdoor, Blind, Quora, Reddit, Medium, LinkedIn, and YouTube to surface specific candidate accounts, interviewer patterns, and round-by-round details that are otherwise scattered across the internet.</p></div>
     <div class="cs"><h2>What Makes These Hard to Write</h2><p>A good interview guide knows how Google's PM interview differs from Meta's, what a DoorDash strategy round looks for versus a Stripe one, and what candidates consistently get wrong at each company. That level of specificity comes from doing the research at depth and having enough domain fluency to know what is signal and what is noise.</p></div>
     <div class="cs"><h2>Results</h2><p>Exponent's interview guides are its primary free-to-paid conversion driver. My 35 guides are a significant part of that content library, with the Google PM, Meta PM, and Facebook EM guides ranking among the platform's top-converting pages.</p></div>
-    <div class="cs"><h2>Sample Work</h2><ul class="sample-list"><li>Discord Product Manager Interview Guide <span>&#8594;</span></li><li>Google Strategy and Ops Interview Guide <span>&#8594;</span></li><li>Pinterest Product Manager Interview Guide <span>&#8594;</span></li><li>Capital One Engineering Manager Interview Guide <span>&#8594;</span></li></ul></div>
+    <div class="cs"><h2>Sample Work</h2><ul class="sample-list"><li><a href="https://www.tryexponent.com/guides/discord-product-manager-interview-guide" target="_blank">Discord Product Manager Interview Guide</a> <span>&#8594;</span></li><li><a href="https://www.tryexponent.com/guides/google-strategy-and-ops-interview-guide" target="_blank">Google Strategy and Ops Interview Guide</a> <span>&#8594;</span></li><li><a href="https://www.tryexponent.com/guides/pinterest-product-manager-interview-guide" target="_blank">Pinterest Product Manager Interview Guide</a> <span>&#8594;</span></li><li><a href="https://www.tryexponent.com/guides/capital-one-engineering-manager-interview-guide" target="_blank">Capital One Engineering Manager Interview Guide</a> <span>&#8594;</span></li></ul></div>
     <div class="cs"><h2>Tools</h2><div class="tools-row"><span class="tool-pill">Contentful</span><span class="tool-pill">Notion</span><span class="tool-pill">Loom</span></div></div>
     <div class="cs"><h2>What the Client Says</h2><div class="client-quote"><blockquote>"Aakanksha is an excellent writer, researcher, and teammate. She's become a reliable force on our team; when we have an important assignment we need to get right the first time, it goes to Aakanksha. She can write for technical audiences or general audiences. Her work has improved with time; she is self-driven to grow. If you're looking for a freelance writer with consistent quality output you can count on, Aakanksha is a strong choice."</blockquote><cite>Kevin Landucci, SME and Interview Coach, Exponent</cite></div></div>
   </div>
@@ -256,7 +271,7 @@ nav{background:rgba(0,0,0,0.92);padding:0 4%;height:68px;display:flex;align-item
     <div class="cs"><h2>My Role</h2><p>I worked as a Senior Content Editor on an 8-member team, editing, humanizing, and publishing 250+ blogs per month across two tracks:</p><div class="track-block"><strong>Agency content editing</strong><p>Editing blogs sourced from external agencies: comparison articles, listicles, soft pieces, and long-form guides. Approximately 600 blogs edited this way.</p></div><div class="track-block"><strong>AI-first content</strong><p>Taking AI-generated drafts, editing them into human, publish-ready content, and seeing them through to publication. 20 blogs produced through this track.</p></div></div>
     <div class="cs"><h2>What Makes This Hard to Do</h2><p>Editing at this volume without losing quality is the challenge. Every piece needs to sound like ClickUp, not like an agency, not like an AI. That means catching not just grammar and structure but tone, accuracy, and whether the content actually serves the reader. At 250+ blogs a month, there is no room for a slow pass.</p></div>
     <div class="cs"><h2>Results</h2><div class="metrics-row"><div class="metric-box"><span class="metric-val">2%</span><span class="metric-lbl">Avg conversion to free signups</span></div><div class="metric-box"><span class="metric-val">10–11%</span><span class="metric-lbl">Top keyword conversion rate</span></div><div class="metric-box"><span class="metric-val">600+</span><span class="metric-lbl">Blogs edited</span></div></div></div>
-    <div class="cs"><h2>Sample Work</h2><ul class="sample-list"><li>Internal Product Management to Enhance Development Success <span>&#8594;</span></li><li>How to Make a Routine With ADHD <span>&#8594;</span></li><li>Types of Project Management <span>&#8594;</span></li><li>Revenue Growth Rate <span>&#8594;</span></li><li>Capacity Planning Templates for Excel <span>&#8594;</span></li></ul></div>
+    <div class="cs"><h2>Sample Work</h2><ul class="sample-list"><li><a href="https://clickup.com/blog/internal-product-management/" target="_blank">Internal Product Management to Enhance Development Success</a> <span>&#8594;</span></li><li><a href="https://clickup.com/blog/how-to-make-a-routine-with-adhd/" target="_blank">How to Make a Routine with ADHD: Tips & Tools</a> <span>&#8594;</span></li><li><a href="https://clickup.com/blog/types-of-project-management/" target="_blank">Top 17 Project Management Methodologies (+ Examples)</a> <span>&#8594;</span></li><li><a href="https://clickup.com/blog/revenue-growth-rate/" target="_blank">How to Improve Revenue Growth Rate: Formula & More</a> <span>&#8594;</span></li><li><a href="https://clickup.com/blog/product-design-templates/" target="_blank">Free Product Design Templates You'll Love</a> <span>&#8594;</span></li></ul></div>
     <div class="cs"><h2>Tools</h2><div class="tools-row"><span class="tool-pill">WordPress</span><span class="tool-pill">Amplitude</span><span class="tool-pill">ClickUp</span></div></div>
     <div class="cs"><h2>What the Client Says</h2><div class="client-quote"><blockquote>"Aakanksha is a curious, self-driven, and reliable editor with a keen eye for detail and an obsession for not just grammatical accuracy but also narrative building. Her structural and copy edits elevate a piece into something that sticks with the reader; her habit of diving deep lends a uniqueness to each piece she edits. She's also a fun teammate to have, with her multiple diverse interests (from poetry to healing) making for beautiful conversations. Any team would be lucky to have her as both a creative, original writer and an analytical editor."</blockquote><cite>Garima Behal, Senior Content Editor, Scalerrs (formerly ClickUp team)</cite></div></div>
   </div>
@@ -271,7 +286,7 @@ nav{background:rgba(0,0,0,0.92);padding:0 4%;height:68px;display:flex;align-item
     <div class="cs"><h2>My Role</h2><p>I ghostwrote 25+ fortnightly newsletters entirely in Vrishin's voice, covering personal finance, investing, tax planning, and immigration-specific money decisions. The newsletter functions as TOFU content, warming readers up for a free consultation and eventual client conversion.</p></div>
     <div class="cs"><h2>My Process</h2><p>Every newsletter started with a seed idea from Vrishin: sometimes a question from a client, sometimes a news event, sometimes a financial concept worth demystifying. My job was to turn that seed into a piece that felt personal, grounded in data, and genuinely useful for someone figuring out the US financial system for the first time.</p><p>Writing in someone else's voice meant getting Vrishin's tone right: warm, direct, and never condescending about money. Each issue was researched, written, and delivered to a fortnightly deadline without exception.</p></div>
     <div class="cs"><h2>Results</h2><div class="metrics-row"><div class="metric-box"><span class="metric-val">88%</span><span class="metric-lbl">Readership growth in 5 months</span></div><div class="metric-box"><span class="metric-val">80%</span><span class="metric-lbl">Open rate</span></div><div class="metric-box"><span class="metric-val">0.1–0.5%</span><span class="metric-lbl">Reader to client conversion</span></div></div></div>
-    <div class="cs"><h2>Sample Work</h2><ul class="sample-list"><li>3 Money Strategies for Immigrants During Presidential Elections 2024 <span>&#8594;</span></li><li>Money Lessons from the Olympics: Paris 2024 <span>&#8594;</span></li><li>Free Financial Advice Is Free for a Reason <span>&#8594;</span></li></ul></div>
+    <div class="cs"><h2>Sample Work</h2><ul class="sample-list"><li><a href="https://capitalwe.kit.com/posts/3-money-strategies-for-immigrants-during-presidential-elections-2024" target="_blank">3 Money Strategies for Immigrants During Presidential Elections 2024</a> <span>&#8594;</span></li><li><a href="https://capitalwe.kit.com/posts/money-lessons-from-the-olympics-paris-2024" target="_blank">Money Lessons from the Olympics: Paris 2024</a> <span>&#8594;</span></li><li><a href="https://capitalwe.kit.com/posts/free-financial-advice-is-free-for-a-reason" target="_blank">Free financial Advice is Free for a reason</a> <span>&#8594;</span></li><li><a href="https://substack.com/home/post/p-156585139" target="_blank">"Let's talk about money, honey." How to Navigate Finances, With Love</a> <span>&#8594;</span></li><li><a href="https://substack.com/home/post/p-156585104" target="_blank">All you need to know about interest rates to make smarter money decisions in 2025</a> <span>&#8594;</span></li></ul></div>
     <div class="cs"><h2>Tools</h2><div class="tools-row"><span class="tool-pill">Kit (ConvertKit)</span><span class="tool-pill">Notion</span></div></div>
     <div class="cs"><h2>What the Client Says</h2><div class="client-quote"><blockquote>"I had the pleasure of working with Aakanksha on a newsletter for my finance business. From the outset, she quickly adapted to the systems and frameworks we had in place and was consistently dependable in meeting, and often beating, deadlines. Aakanksha brings a strong sense of narrative and a voice that's both engaging and informal — exactly what I was looking for in communicating with my audience. She is highly responsive to feedback and able to adjust smoothly to changes in direction or timing, which made collaborating with her a seamless experience. Even when provided with just the seed of an idea, she could turn it into a compelling piece of content."</blockquote><cite>Vrishin Subramaniam, Founder, CapitalWe</cite></div></div>
   </div>
@@ -286,7 +301,7 @@ nav{background:rgba(0,0,0,0.92);padding:0 4%;height:68px;display:flex;align-item
     <div class="cs"><h2>My Role</h2><p>I came in as the full content lead, not just a writer or editor, but the person responsible for standing up the entire operation. I sourced the client through my network, assembled a two-writer team also from my network, and managed the end-to-end content pipeline from brief to final delivery.</p></div>
     <div class="cs"><h2>My Process</h2><ul class="process-steps"><li><div class="step-content"><strong>Client relationship</strong><p>Managed the relationship directly with their marketing manager, handling scope, timelines, feedback cycles, and final delivery.</p></div></li><li><div class="step-content"><strong>Team building</strong><p>Sourced and onboarded two freelance writers from my network, matching them to LMS and e-learning topics that suited their strengths.</p></div></li><li><div class="step-content"><strong>Brief writing</strong><p>Every blog started with a brief I drafted, covering the target keyword, intended audience, content structure, key angles, and internal linking opportunities.</p></div></li><li><div class="step-content"><strong>Editing and feedback</strong><p>Reviewed every draft, gave detailed written feedback, and edited final versions into publish-ready content before delivery.</p></div></li></ul></div>
     <div class="cs"><h2>Results</h2><p>In two months, Thriving Springs went from no content operation to a functioning blog engine with a library of published LMS and e-learning guides targeting high-intent B2B keywords.</p></div>
-    <div class="cs"><h2>Sample Work</h2><ul class="sample-list"><li>How to Choose the Best SaaS LMS in 2025 <span>&#8594;</span></li><li>Top 10 Customer Training Software Tools for 2025 <span>&#8594;</span></li><li>Top 11 LMS Features You Should Consider Before Buying <span>&#8594;</span></li><li>LMS for Frontline Training in E-commerce <span>&#8594;</span></li></ul></div>
+    <div class="cs"><h2>Sample Work</h2><ul class="sample-list"><li><a href="https://www.thrivingsprings.ai/blog/how-to-choose-the-best-saas-lms-in-2025" target="_blank">How to Choose the Best SaaS LMS in 2025</a> <span>&#8594;</span></li><li><a href="https://www.thrivingsprings.ai/blog/top-10-customer-training-software-tools-for-2025" target="_blank">Top 10 Customer Training Software Tools for 2025</a> <span>&#8594;</span></li><li><a href="https://www.thrivingsprings.ai/blog/top-11-lms-features-you-should-consider-before-buying" target="_blank">Top 11 LMS Features You Should Consider Before Buying in 2025</a> <span>&#8594;</span></li><li><a href="https://www.thrivingsprings.ai/blog/customizable-lms" target="_blank">Customizable LMS: Why Flexibility in Your Learning Platform is Key</a> <span>&#8594;</span></li><li><a href="https://www.thrivingsprings.ai/blog/lms-for-frontline-training-in-e-commerce" target="_blank">A Comprehensive Guide to LMS for Frontline Training in E-commerce</a> <span>&#8594;</span></li></ul></div>
   </div>
 </div>
 
@@ -299,7 +314,20 @@ nav{background:rgba(0,0,0,0.92);padding:0 4%;height:68px;display:flex;align-item
     <div class="cs"><h2>My Role</h2><p>I researched and wrote consulting papers based on roundtable discussions with senior business leaders. Each paper synthesized the key insights, debates, and takeaways from those conversations into a polished, publication-ready report for a CXO audience. Over six months, I wrote 20 papers, roughly one every nine days, covering topics across marketing, HR, strategy, and leadership.</p></div>
     <div class="cs"><h2>What Makes These Hard to Write</h2><p>CXO readers are time-poor and skeptical. A paper that reads like a summary gets skipped. One that reads like genuine analysis gets shared. That meant understanding the roundtable material deeply enough to have a perspective on it, not just report it.</p></div>
     <div class="cs"><h2>Results</h2><div class="metrics-row"><div class="metric-box"><span class="metric-val">20</span><span class="metric-lbl">Papers in 6 months</span></div><div class="metric-box"><span class="metric-val">1,000+</span><span class="metric-lbl">CXO subscribers per paper</span></div></div></div>
-    <div class="cs"><h2>Sample Work</h2><ul class="sample-list"><li>Leveraging Behavioural Analytics to Improve Decision Making <span>&#8594;</span></li><li>The New CMO Mandate: Becoming a Growth Driver <span>&#8594;</span></li><li>Business Lessons from a Successful Start-up: The Udaan Story <span>&#8594;</span></li><li>Redesigning the Workplace for a Competitive Advantage: The Role of CHRO <span>&#8594;</span></li></ul></div>
+    <div class="cs"><h2>Sample Work</h2><p class="ima-note">These research papers are member-only content behind a paywall. I am sharing the internal drafts below.</p><ul class="sample-list"><li><a href="https://docs.google.com/document/d/1XdyIVJKgKxAQ_1lmWgtSd4tO1kWQvDeB/edit" target="_blank">Leveraging behavioural analytics to improve decision making</a> <span>&#8594;</span></li><li><a href="https://docs.google.com/document/d/1NlHCTN0xyxEv0w1RrGNUPrrkDbcdicVV/edit" target="_blank">The New CMO Mandate: Becoming a Growth Driver</a> <span>&#8594;</span></li><li><a href="https://docs.google.com/document/d/1YFewnWDnQN8ii3IIkHTrl8wMM5D2Q0OWcL8jjKLbGBU/edit?usp=sharing" target="_blank">Business Lessons from a Successful Start-up: The Udaan Story</a> <span>&#8594;</span></li><li><a href="https://docs.google.com/document/d/14AP8E_1Z2zCZ--Z5mjRLJ4DlAivHqPAe/edit?usp=sharing&ouid=110780530720445067755&rtpof=true&sd=true" target="_blank">Redesigning Workplace for Competitive advantage: The Role of CHRO</a> <span>&#8594;</span></li></ul></div>
+  </div>
+</div>
+
+<!-- HT MINT -->
+<div id="page-htmint" class="page">
+  <div class="client-hero-band" style="background:linear-gradient(135deg,#1a1410,#2a1f10)"><div class="client-hero-band-fade"></div><div class="client-hero-text"><p class="client-eyebrow">Startups Journalist</p><h1 class="client-title">HT Mint</h1><p class="client-subtitle">Full-time Journalist · 2016–2018</p></div></div>
+  <div class="client-wrap">
+    <button class="back-btn" onclick="showPage('home')">&#8592; Back</button>
+    <div class="cs"><h2>The Brief</h2><p>Mint's startup and technology desk covered India's rapidly evolving venture ecosystem from early-stage funding and business strategy to layoffs, regulation, and digital consumer trends. The role required balancing speed with depth: breaking news quickly while building enough trust within the ecosystem to report nuanced, insider-driven stories.</p></div>
+    <div class="cs"><h2>My Role</h2><p>I extensively reported on India's startup ecosystem, covering fintech, edtech, e-commerce, SaaS, and consumer internet businesses. Over the course of my tenure, I wrote more than 150 stories by cultivating sources across organizational hierarchies from founders and board members to operational teams and employees on the ground.</p></div>
+    <div class="cs"><h2>My Process</h2><p>My reporting involved sourcing, interviewing, fact-checking, and writing both daily news coverage and longer-form enterprise stories. I regularly interviewed founders, operators, investors, and analysts to uncover business shifts, funding developments, and operational realities behind headline growth numbers.</p><p>I interviewed industry leaders including Amazon India VP Manish Tiwary, Uber India's Pradeep Parameswaran, Grofers founder Albinder Dhindsa, alongside venture capital investors, analysts, and startup executives to report exclusive and high-impact stories.</p><p>Startup journalism is often a race for information, but the best reporting comes from context and relationships. My reporting process relied heavily on source-building across the ecosystem not just leadership teams, but former employees, vendors, competitors, consultants, and junior operators who often understood the business reality more intimately than official statements did.</p><p>For breaking news, I worked quickly to validate information across multiple independent sources before publication. For long-form features, I combined interviews with market research, company filings, industry reports, and trend analysis to build stories that explained broader shifts in India's startup ecosystem.</p></div>
+    <div class="cs"><h2>Results</h2><p>My work contributed to Mint's startup and technology coverage during a period of rapid growth in India's venture-backed economy. I consistently broke funding, leadership, and operational stories while also producing long-form features and analytical reportage on emerging startup trends.</p></div>
+    <div class="cs"><h2>Sample Work</h2><ul class="sample-list"><li>When you have a lunch date with your CEO <span>&#8594;</span></li><li>Heave a sigh of relief HR, Amber's here to help <span>&#8594;</span></li><li>These Indian startups are betting on cannabis without the high <span>&#8594;</span></li><li>India's e-commerce market to grow fourfold to $150 billion by 2022 <span>&#8594;</span></li><li>Myntra revenue shrunk by 80% to ₹427 crore in FY18 Interview <span>&#8594;</span></li><li>Albinder Dhindsa: Grofers focusing on building private label business in 2019 <span>&#8594;</span></li></ul></div>
   </div>
 </div>
 
@@ -309,7 +337,7 @@ nav{background:rgba(0,0,0,0.92);padding:0 4%;height:68px;display:flex;align-item
     <div class="about-hero" style="grid-template-columns:1fr;gap:1rem">
       <div>
         <h1 class="about-name">Aakanksha A.</h1>
-        <p class="about-roles">AI content editor · Writer and thinker · Ex-PM · Ex-founder's office · Ex-journalist</p>
+        <p class="about-roles">AI content editor, Writer and thinker, Ex-PM, Ex-founder's office, Ex-journalist</p>
         <p class="about-tagline">I follow my curiosity for a living. It's worked out so far.</p>
       </div>
     </div>
