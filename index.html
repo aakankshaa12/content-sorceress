@@ -181,11 +181,29 @@ nav{background:rgba(0,0,0,0.92);padding:0 4%;height:68px;display:flex;align-item
 .client-hero-logo img{height:44px;max-width:130px;object-fit:contain;filter:brightness(0) invert(1);opacity:0.8}
 
 /* ABOUT PAGE */
-.nf-about-hero{padding:5rem 4% 4rem;background:#000;border-bottom:1px solid #222}
-.nf-about-hero h1{font-size:clamp(2.4rem,5.5vw,4rem);font-weight:700;color:#fff;line-height:1.08;max-width:820px}
-.nf-about-belief{padding:3.5rem 4%;border-bottom:1px solid #222;max-width:900px}
-.nf-about-belief-label{font-size:clamp(1.3rem,2.5vw,1.8rem);letter-spacing:0.02em;text-transform:none;color:#fff;margin-bottom:1.2rem;font-weight:700}
-.nf-about-belief p{font-size:clamp(1rem,1.8vw,1.2rem);color:var(--muted);line-height:1.7;font-weight:400}
+.nf-about-hero{padding:0;background:#000;border-bottom:1px solid #222;position:relative;overflow:hidden;min-height:420px;display:flex;align-items:center}
+.nf-about-hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#e50914 0%,#8a0009 40%,#000 75%);opacity:0.92}
+.nf-about-hero-content{position:relative;z-index:2;padding:5rem 8% 5rem 6%}
+.nf-about-hero h1{font-size:clamp(2rem,4.5vw,3.4rem);font-weight:700;color:#fff;line-height:1.1;max-width:700px;margin-bottom:1rem}
+.nf-about-hero-sub{font-size:clamp(0.95rem,1.6vw,1.15rem);color:rgba(255,255,255,0.75);line-height:1.7;max-width:580px}
+
+/* Netflix-style panels */
+.nf-about-panels{display:grid;grid-template-columns:1fr;gap:0}
+.nf-about-panel{display:grid;grid-template-columns:300px 1fr;min-height:220px;border-bottom:1px solid #1a1a1a}
+.nf-about-panel:nth-child(odd) .nf-about-panel-left{background:linear-gradient(160deg,#e50914 0%,#6a0007 100%)}
+.nf-about-panel:nth-child(even) .nf-about-panel-left{background:linear-gradient(160deg,#b20710 0%,#3a0004 100%)}
+.nf-about-panel-left{display:flex;flex-direction:column;justify-content:center;padding:2.5rem 2rem;position:relative;overflow:hidden}
+.nf-about-panel-left::after{content:"";position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,0.05)}
+.nf-about-panel-label{font-size:clamp(1.1rem,2vw,1.5rem);font-weight:700;color:#fff;line-height:1.3;margin-bottom:0.4rem;position:relative;z-index:1}
+.nf-about-panel-num{font-size:4rem;font-weight:900;color:rgba(255,255,255,0.08);position:absolute;bottom:0.5rem;right:1rem;line-height:1;font-family:sans-serif}
+.nf-about-panel-right{padding:2.5rem 3rem;display:flex;align-items:center;background:var(--surface)}
+.nf-about-panel-items{display:flex;flex-direction:column;gap:0.75rem;width:100%}
+.nf-about-item{display:flex;align-items:flex-start;gap:0.75rem}
+.nf-about-item-dot{width:8px;height:8px;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:0.45rem}
+.nf-about-item-text{font-size:clamp(0.95rem,1.5vw,1.1rem);color:#e5e5e5;line-height:1.6}
+
+/* hide old card grid */
+.nf-about-belief{display:none}
 .nf-about-through{display:none}
 .nf-about-grid{display:none}
 .nf-about-card{display:none}
@@ -235,7 +253,7 @@ nav{background:rgba(0,0,0,0.92);padding:0 4%;height:68px;display:flex;align-item
           <div class="nf-thumb-overlay"></div>
           <div class="nf-thumb-label">
             <div class="nf-company">Exponent <span style="font-size:10px;font-weight:400;color:rgba(255,255,255,0.5)">(Ed-tech)</span></div>
-            <div class="nf-role">Sr. Writer</div>
+            <div class="nf-role">Sr. Tech Editor &amp; Writer</div>
           </div>
         </div>
         <div class="nf-info"><p class="nf-desc">40+ Interview Guides for FAANG roles</p></div>
@@ -243,7 +261,7 @@ nav{background:rgba(0,0,0,0.92);padding:0 4%;height:68px;display:flex;align-item
           <div class="nf-preview-hero"><span class="nf-preview-logo-text" style="color:#a78bfa">Exponent</span></div>
           <div class="nf-preview-body">
             <div class="nf-preview-company">Exponent</div>
-            <div class="nf-preview-role">Sr. Writer</div>
+            <div class="nf-preview-role">Sr. Tech Editor &amp; Writer</div>
             <div class="nf-preview-metric">40 guides · 3,500+ course purchases</div>
             <div class="nf-preview-quote">When we need something done right the first time, it goes to Aakanksha.</div>
             <button class="nf-preview-cta" onclick="event.stopPropagation();showClient('exponent')">Read Case Study &rarr;</button>
@@ -258,7 +276,7 @@ nav{background:rgba(0,0,0,0.92);padding:0 4%;height:68px;display:flex;align-item
           <div class="nf-thumb-overlay"></div>
           <div class="nf-thumb-label">
             <div class="nf-company">ClickUp <span style="font-size:10px;font-weight:400;color:rgba(255,255,255,0.5)">(B2B SaaS)</span></div>
-            <div class="nf-role">Sr. Editor &amp; Writer</div>
+            <div class="nf-role">Sr. Content Editor</div>
           </div>
         </div>
         <div class="nf-info"><p class="nf-desc">600+ blogs edited across SEO, comparison, and long-form</p></div>
@@ -266,7 +284,7 @@ nav{background:rgba(0,0,0,0.92);padding:0 4%;height:68px;display:flex;align-item
           <div class="nf-preview-hero"><span class="nf-preview-logo-text" style="color:#7b68ee">ClickUp</span></div>
           <div class="nf-preview-body">
             <div class="nf-preview-company">ClickUp</div>
-            <div class="nf-preview-role">Sr. Editor &amp; Writer</div>
+            <div class="nf-preview-role">Sr. Content Editor</div>
             <div class="nf-preview-metric">600+ blogs edited · 11% top keyword conversion</div>
             <div class="nf-preview-quote">She's become a reliable force on our team.</div>
             <button class="nf-preview-cta" onclick="event.stopPropagation();showClient('clickup')">Read Case Study &rarr;</button>
@@ -281,7 +299,7 @@ nav{background:rgba(0,0,0,0.92);padding:0 4%;height:68px;display:flex;align-item
           <div class="nf-thumb-overlay"></div>
           <div class="nf-thumb-label">
             <div class="nf-company">Capital We <span style="font-size:10px;font-weight:400;color:rgba(255,255,255,0.5)">(Fin-tech)</span></div>
-            <div class="nf-role">Newsletter Ghostwriter</div>
+            <div class="nf-role">Newsletter Strategist &amp; Writer</div>
           </div>
         </div>
         <div class="nf-info"><p class="nf-desc">30+ newsletters for a fintech founder audience</p></div>
@@ -289,7 +307,7 @@ nav{background:rgba(0,0,0,0.92);padding:0 4%;height:68px;display:flex;align-item
           <div class="nf-preview-hero"><span class="nf-preview-logo-text" style="color:#4ade80">Capital We</span></div>
           <div class="nf-preview-body">
             <div class="nf-preview-company">Capital We</div>
-            <div class="nf-preview-role">Newsletter Ghostwriter</div>
+            <div class="nf-preview-role">Newsletter Strategist &amp; Writer</div>
             <div class="nf-preview-metric">30+ newsletters · 1.5% signup rate for free consultation</div>
             <div class="nf-preview-quote">She brings a strong sense of narrative — exactly what I was looking for.</div>
             <button class="nf-preview-cta" onclick="event.stopPropagation();showClient('capitalwe')">Read Case Study &rarr;</button>
@@ -402,7 +420,7 @@ nav{background:rgba(0,0,0,0.92);padding:0 4%;height:68px;display:flex;align-item
     <p class="row-label">Offerings</p>
     <div class="skills-grid">
       <div class="skill-box"><div class="skill-name">AI content producing and editing</div><div class="skill-desc">Building AI-led content engines at scale, humanising, and fact-checking AI assisted drafts, writing tailored specifically for LLMs, AEO and GEO</div></div>
-      <div class="skill-box"><div class="skill-name">Ghostwriting</div><div class="skill-desc">Tailored writing for founders, thought leaders and CXOs that matches their brand, tone and voice</div></div>
+      <div class="skill-box"><div class="skill-name">Thought Leadership &amp; Personal Branding</div><div class="skill-desc">Tailored writing for founders, thought leaders and CXOs that matches their brand, tone and voice — turning ideas into authoritative content that builds a distinct personal presence</div></div>
       <div class="skill-box"><div class="skill-name">Technical Content</div><div class="skill-desc">Across Fin-tech, SaaS (mar-tech, AI-tech etc), Ed-tech, Micro-SaaS, including website content, product copy, blogs, FAQs</div></div>
     </div>
   
@@ -458,7 +476,7 @@ nav{background:rgba(0,0,0,0.92);padding:0 4%;height:68px;display:flex;align-item
 
 <!-- EXPONENT -->
 <div id="page-exponent" class="page">
-  <div class="client-hero-band" style="background:linear-gradient(135deg,#0d0d0d,#2a0505)"><div class="client-hero-band-fade"></div><div class="client-hero-text"><p class="client-eyebrow">Interview Guides</p><h1 class="client-title">Exponent</h1><p class="client-subtitle">Senior Technical Contributor · December 2024–Present</p></div></div>
+  <div class="client-hero-band" style="background:linear-gradient(135deg,#0d0d0d,#2a0505)"><div class="client-hero-band-fade"></div><div class="client-hero-text"><p class="client-eyebrow">Interview Guides</p><h1 class="client-title">Exponent</h1><p class="client-subtitle">Sr. Tech Editor &amp; Writer · December 2024–Present</p></div></div>
   <div class="client-wrap">
     <button class="back-btn" onclick="showPage('home')">&#8592; Back</button>
     <div class="cs"><h2>The Brief</h2><p>Exponent needed interview guides that could rank organically and convert free users to paid course subscribers. These guides are the platform's highest-ROI content and the primary entry point into the funnel.</p></div>
@@ -488,7 +506,7 @@ nav{background:rgba(0,0,0,0.92);padding:0 4%;height:68px;display:flex;align-item
 
 <!-- CAPITALWE -->
 <div id="page-capitalwe" class="page">
-  <div class="client-hero-band" style="background:linear-gradient(135deg,#0a1a10,#102015)"><div class="client-hero-band-fade"></div><div class="client-hero-text"><p class="client-eyebrow">Newsletter · Fintech</p><h1 class="client-title">CapitalWe</h1><p class="client-subtitle">Newsletter Writer · August 2024–May 2025</p></div></div>
+  <div class="client-hero-band" style="background:linear-gradient(135deg,#0a1a10,#102015)"><div class="client-hero-band-fade"></div><div class="client-hero-text"><p class="client-eyebrow">Newsletter · Fintech</p><h1 class="client-title">CapitalWe</h1><p class="client-subtitle">Newsletter Strategist &amp; Writer · August 2024–May 2025</p></div></div>
   <div class="client-wrap">
     <button class="back-btn" onclick="showPage('home')">&#8592; Back</button>
     <div class="cs"><h2>The Brief</h2><p>CapitalWe is a financial planning firm serving Indian immigrants in the US: H1B, L1, and Green Card holders navigating an unfamiliar financial system. Vrishin, the founder, needed a fortnightly newsletter that could educate his audience, build trust, and convert readers into consultation clients.</p></div>
@@ -543,68 +561,63 @@ nav{background:rgba(0,0,0,0.92);padding:0 4%;height:68px;display:flex;align-item
 <div id="page-about" class="page">
 
   <div class="nf-about-hero">
-    <h1>Well-written narratives<br>are the lifeblood<br>of our lives.</h1>
-  </div>
-
-  <div class="nf-about-belief">
-    <div class="nf-about-belief-label">Superpowers</div>
-    <p>Structured thinking &nbsp;&bull;&nbsp; Narrative building &nbsp;&bull;&nbsp; Annoying attention to detail</p>
-  </div>
-  <div class="nf-about-through">That looks like:</div>
-  <div class="nf-about-grid">
-    <div class="nf-about-card">
-      <div class="nf-about-card-title">Structured Thinking</div>
-      <div class="nf-about-card-desc">I break down every brief until I understand the ICP's pain points and jobs to be done. No writing until the thinking is done.</div>
-    </div>
-    <div class="nf-about-card">
-      <div class="nf-about-card-title">Narrative Building</div>
-      <div class="nf-about-card-desc">I turn dry topics, founder ideas, and roundtable transcripts into stories readers actually finish. The arc matters as much as the words.</div>
-    </div>
-    <div class="nf-about-card">
-      <div class="nf-about-card-title">Annoying Attention to Detail</div>
-      <div class="nf-about-card-desc">Dangling modifier. Broken research link. Competitor accidentally cited in your blog. Shift in brand voice mid-piece. I catch all of it. Voluntarily.</div>
+    <div class="nf-about-hero-bg"></div>
+    <div class="nf-about-hero-content">
+      <h1>Well-written narratives are the lifeblood of our lives.</h1>
     </div>
   </div>
 
-  <div class="nf-about-belief">
-    <div class="nf-about-belief-label">What I Secretly Enjoy</div>
-    <p>Stalking (not researching) competitors &nbsp;&bull;&nbsp; Vibe Coding with Claude &nbsp;&bull;&nbsp; Adding humour to content</p>
-  </div>
-  <div class="nf-about-through">In practice:</div>
-  <div class="nf-about-grid">
-    <div class="nf-about-card">
-      <div class="nf-about-card-title">Stalking Competitors</div>
-      <div class="nf-about-card-desc">Not researching. Stalking. I look at what they're saying, how they're saying it, and what they're not saying. It sharpens everything.</div>
+  <div class="nf-about-panels">
+
+    <!-- Panel 1: Superpowers -->
+    <div class="nf-about-panel">
+      <div class="nf-about-panel-left">
+        <div class="nf-about-panel-label">Superpowers</div>
+        <div class="nf-about-panel-num">01</div>
+      </div>
+      <div class="nf-about-panel-right">
+        <div class="nf-about-panel-items">
+          <div class="nf-about-item"><div class="nf-about-item-dot"></div><div class="nf-about-item-text">Structured thinking</div></div>
+          <div class="nf-about-item"><div class="nf-about-item-dot"></div><div class="nf-about-item-text">Narrative building</div></div>
+          <div class="nf-about-item"><div class="nf-about-item-dot"></div><div class="nf-about-item-text">Annoying attention to detail</div></div>
+        </div>
+      </div>
     </div>
-    <div class="nf-about-card">
-      <div class="nf-about-card-title">Vibe Coding with Claude</div>
-      <div class="nf-about-card-desc">I built this entire portfolio site with Claude and zero engineering background. It's now a legitimate credential on my applications.</div>
+
+    <!-- Panel 2: What I Enjoy -->
+    <div class="nf-about-panel">
+      <div class="nf-about-panel-left">
+        <div class="nf-about-panel-label">What I Secretly Enjoy</div>
+        <div class="nf-about-panel-num">02</div>
+      </div>
+      <div class="nf-about-panel-right">
+        <div class="nf-about-panel-items">
+          <div class="nf-about-item"><div class="nf-about-item-dot"></div><div class="nf-about-item-text">Stalking (not researching) competitors</div></div>
+          <div class="nf-about-item"><div class="nf-about-item-dot"></div><div class="nf-about-item-text">Vibe coding with Claude</div></div>
+          <div class="nf-about-item"><div class="nf-about-item-dot"></div><div class="nf-about-item-text">Adding humour to content</div></div>
+        </div>
+      </div>
     </div>
-    <div class="nf-about-card">
-      <div class="nf-about-card-title">Adding Humour to Content</div>
-      <div class="nf-about-card-desc">Colleagues mention this unprompted. A bit of wry, a moment of levity, a self-aware aside. It makes dry content people actually want to read.</div>
+
+    <!-- Panel 3: First Principles -->
+    <div class="nf-about-panel">
+      <div class="nf-about-panel-left">
+        <div class="nf-about-panel-label">First Principles for Content Strategy</div>
+        <div class="nf-about-panel-num">03</div>
+      </div>
+      <div class="nf-about-panel-right">
+        <div class="nf-about-panel-items">
+          <div class="nf-about-item"><div class="nf-about-item-dot"></div><div class="nf-about-item-text">Pain points first</div></div>
+          <div class="nf-about-item"><div class="nf-about-item-dot"></div><div class="nf-about-item-text">Jobs to be done</div></div>
+          <div class="nf-about-item"><div class="nf-about-item-dot"></div><div class="nf-about-item-text">Then write</div></div>
+        </div>
+      </div>
     </div>
+
   </div>
 
-  <div class="nf-about-belief">
-    <div class="nf-about-belief-label">First Principles for Content Strategy</div>
-    <p>Break down the content until you understand the ICP's pain points &nbsp;&bull;&nbsp; Jobs to be done</p>
-  </div>
-  <div class="nf-about-through">Which means:</div>
-  <div class="nf-about-grid">
-    <div class="nf-about-card">
-      <div class="nf-about-card-title">Pain Points First</div>
-      <div class="nf-about-card-desc">What is this person actually struggling with? Not the vague persona. The real, specific, daily frustration that makes them click on your content.</div>
-    </div>
-    <div class="nf-about-card">
-      <div class="nf-about-card-title">Jobs to Be Done</div>
-      <div class="nf-about-card-desc">What job is the reader hiring this content to do? Teach them something? Help them decide? Make them look smart in a meeting? Write to that job.</div>
-    </div>
-    <div class="nf-about-card">
-      <div class="nf-about-card-title">Then Write</div>
-      <div class="nf-about-card-desc">Only once both of those are clear does the actual writing start. This is why the work lands. It's not magic. It's order of operations.</div>
-    </div>
-  </div>
+  <!-- keep old belief/grid divs but hidden via CSS -->
+  <div class="nf-about-belief" style="display:none"></div>
 
 </div>
 
@@ -627,15 +640,15 @@ function closeTrailerOutside(e){if(e.target===document.getElementById('trailerOv
     <div class="career-arc">Startups Journalist &rarr; Product Manager &rarr; Content Marketer &amp; Editor</div>
     <div class="trailer-item">
       <div class="trailer-logo-circle" style="background:#1a0050">Exp</div>
-      <div class="trailer-text"><strong>Exponent &mdash; Sr. Writer</strong><span>40+ PM &amp; EM interview guides &middot; 3,500+ course purchases</span></div>
+      <div class="trailer-text"><strong>Exponent &mdash; Sr. Tech Editor &amp; Writer</strong><span>40+ PM &amp; EM interview guides &middot; 3,500+ course purchases</span></div>
     </div>
     <div class="trailer-item">
       <div class="trailer-logo-circle" style="background:#0d0a20">CU</div>
-      <div class="trailer-text"><strong>ClickUp &mdash; Sr. Editor &amp; Writer</strong><span>600+ blogs edited &middot; 11% top keyword conversion</span></div>
+      <div class="trailer-text"><strong>ClickUp &mdash; Sr. Content Editor</strong><span>600+ blogs edited &middot; 11% top keyword conversion</span></div>
     </div>
     <div class="trailer-item">
       <div class="trailer-logo-circle" style="background:#071a0d">CW</div>
-      <div class="trailer-text"><strong>Capital We &mdash; Newsletter Ghostwriter</strong><span>30+ newsletters &middot; 1.5% free consultation signup rate</span></div>
+      <div class="trailer-text"><strong>Capital We &mdash; Newsletter Strategist &amp; Writer</strong><span>30+ newsletters &middot; 1.5% free consultation signup rate</span></div>
     </div>
     <div class="trailer-item">
       <div class="trailer-logo-circle" style="background:#0f0a18">TS</div>
